@@ -5,22 +5,21 @@ import React from 'react'
 
 export default React.createClass({
     render() {
+        const {operators} = this.props;
         return (
             <div id="menu">
                 <a className="pure-menu-heading" href="#">Operators</a>
                 <ul className="pure-menu-list">
-                    <li className="pure-menu-item">
-                        <a href="/" className="pure-menu-link">PlaceHolder 1</a>
-                    </li>
-                    <li className="pure-menu-item">
-                        <a href="/" className="pure-menu-link">PlaceHolder 2</a>
-                    </li>
-                    <li className="pure-menu-item">
-                        <a href="/" className="pure-menu-link">PlaceHolder 3</a>
-                    </li>
-                    <li className="pure-menu-item">
-                        <a href="/" className="pure-menu-link">PlaceHolder 4</a>
-                    </li>
+                    {
+                        operators.map((operator) => {
+                                return (
+                                    <li className="pure-menu-item">
+                                        <a href="/" className="pure-menu-link">{operator.operatorType}</a>
+                                    </li>
+                                )
+                            }
+                        )
+                    }
                 </ul>
             </div>
         )

@@ -2,6 +2,8 @@
  * Created by davidraleigh on 12/10/15.
  */
 import React from 'react';
+import app from 'ampersand-app'
+
 import NavHelper from '../components/nav-helper'
 import LocationMap from '../components/location-map'
 import LeafletView from '../components/leaflet-view'
@@ -13,7 +15,7 @@ export default React.createClass({
         return (
             <NavHelper className='container'>
                 <div id="layout">
-                    <OperatorMenu />
+                    <OperatorMenu operators={app.operators} />
                     <header role='banner'>
                         <h1>Geometry Micro-Service</h1>
                     </header>
@@ -28,19 +30,3 @@ export default React.createClass({
         );
     }
 });
-
-// Original layout:
-//<NavHelper className='container'>
-//    <header role='banner'>
-//        <h1>Geometry Server</h1>
-//    </header>
-//    <div>
-//        <p>Testing the ESRI C# geometry server</p>
-//        <a href='/login' className='button button-large'>
-//            <span className='mega-octicon octicon-mark-github'></span> Login with GitHub
-//        </a>
-//    </div>
-//    <div>
-//        <LocationMap/>
-//    </div>
-//</NavHelper>
