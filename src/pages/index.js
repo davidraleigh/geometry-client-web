@@ -13,7 +13,6 @@ import OperatorForm from '../components/operator-form'
 
 export default React.createClass({
     render() {
-        debugger;
         return (
             <NavHelper className='container'>
                 <div id="layout">
