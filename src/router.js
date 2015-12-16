@@ -7,6 +7,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import qs from 'qs'
 import xhr from 'xhr'
+import sideStyle from './styles/side-menu.css'
 
 import Layout from './layout'
 import IndexPage from './pages/index'
@@ -31,6 +32,6 @@ export default Router.extend({
 
 
     index() {
-        this.renderPage(<IndexPage/>, {layout:false});
+        this.renderPage(<IndexPage style={sideStyle} />, {layout:false});
     }
 });

@@ -3,10 +3,16 @@
  */
 import Model from 'ampersand-model'
 import OperationCollection from './operation-collection'
+import MethodCollection from './method-collection'
 
 export default Model.extend({
     props: {
-        operatorType: 'string'
+        operatorType: 'string',
+        methods: MethodCollection
+    },
+
+    collections: {
+        operators: OperationCollection
     }
 });
 
