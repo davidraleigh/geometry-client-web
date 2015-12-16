@@ -6,14 +6,10 @@ import ParameterCollection from './parameter-collection'
 
 export default Model.extend({
     props: {
-        parameterPosition: 'int',
+        parameterPosition: 'number',
         parameterName: 'string',
         parameterType: 'string',
         parameterKey: 'string'
-    },
-
-    collections: {
-        parameters: ParameterCollection
     }
 });
 

@@ -3,16 +3,11 @@
  */
 import Model from 'ampersand-model'
 import MethodCollection from './method-collection'
-import ParameterCollection from './parameter-collection'
 
 export default Model.extend({
     props: {
         returnType: "string",
-        parameters: ParameterCollection
-    },
-
-    collections: {
-        methods: MethodCollection
+        parameters: "object"
     }
 })
 

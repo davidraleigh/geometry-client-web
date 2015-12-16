@@ -5,6 +5,7 @@ import React from 'react';
 import NavHelper from '../components/nav-helper'
 import LocationMap from '../components/location-map'
 import LeafletView from '../components/leaflet-view'
+import OperatorMenu from '../components/operator-menu'
 
 
 export default React.createClass({
@@ -12,23 +13,7 @@ export default React.createClass({
         return (
             <NavHelper className='container'>
                 <div id="layout">
-                    <div id="menu">
-                        <a className="pure-menu-heading" href="#">Operators</a>
-                        <ul className="pure-menu-list">
-                            <li className="pure-menu-item">
-                                <a href="/" className="pure-menu-link">PlaceHolder 1</a>
-                            </li>
-                            <li className="pure-menu-item">
-                                <a href="/" className="pure-menu-link">PlaceHolder 2</a>
-                            </li>
-                            <li className="pure-menu-item">
-                                <a href="/" className="pure-menu-link">PlaceHolder 3</a>
-                            </li>
-                            <li className="pure-menu-item">
-                                <a href="/" className="pure-menu-link">PlaceHolder 4</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <OperatorMenu />
                     <header role='banner'>
                         <h1>Geometry Micro-Service</h1>
                     </header>
