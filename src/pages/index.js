@@ -8,10 +8,12 @@ import NavHelper from '../components/nav-helper'
 import LocationMap from '../components/location-map'
 import LeafletView from '../components/leaflet-view'
 import OperatorMenu from '../components/operator-menu'
+import OperatorForm from '../components/operator-form'
 
 
 export default React.createClass({
     render() {
+        debugger;
         return (
             <NavHelper className='container'>
                 <div id="layout">
@@ -24,6 +26,9 @@ export default React.createClass({
                     </p>
                     <div>
                         <LocationMap/>
+                    </div>
+                    <div>
+                        <OperatorForm operator={app.operators.at(0)}/>
                     </div>
                 </div>
             </NavHelper>
