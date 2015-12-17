@@ -12,7 +12,11 @@ export default React.createClass({
 
     getInitialState() {
         const {request} = this.props;
-        return { methodIndex: 0, query: request.query()};
+        return {
+            methodIndex: 0,
+            query: request.query(),
+            results: "{}"
+        };
     },
 
     onMethodSelect(index) {
@@ -30,8 +34,8 @@ export default React.createClass({
         this.setState({query: request.query()});
     },
 
-    onSubmit() {
-
+    onSubmit(event) {
+        event.preventDefault();
     },
 
     componentWillReceiveProps(nextProps) {
@@ -56,7 +60,18 @@ export default React.createClass({
                             })}
                         </div>
                         <button className="pure-button pure-input-1-3 pure-button-primary" onClick={this.onSubmit}>Submit Query</button>
-                        <textarea className="pure-input-1" type="text" value={this.state.query} readOnly></textarea>
+                        <div className="pure-group">
+                            <div className="pure-u-1-2">
+                                <label>JSON Query:</label>
+                                <textarea className="pure-input-1" type="text" rows="8" value={this.state.query} readOnly></textarea>
+                            </div>
+
+                            <div className="pure-u-1-2">
+                                <label>Results:</label>
+                                <textarea className="pure-input-1" type="text" rows="8" value={this.state.results} readOnly></textarea>
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
             </div>
