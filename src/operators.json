@@ -438,6 +438,7 @@
                         "parameterValue" : 4326
                     },
                     {
+                        "parameterKey": "input_doubles",
                         "parameterPosition" : 2,
                         "parameterType" : "Double[]",
                         "parameterName" : "distances",

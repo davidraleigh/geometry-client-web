@@ -11,20 +11,32 @@ export default React.createClass({
     mixins: [ampMixin],
 
     getInitialState() {
-        return {
-            methodIndex: 0
-        };
+        const {request} = this.props;
+        return { methodIndex: 0, query: request.query()};
     },
 
     onMethodSelect(index) {
-        debugger;
-        this.props.request.methodIndex = index;
+        const {request} = this.props;
+        request.methodIndex = index;
+        app.request = request;
         this.setState({methodIndex: index});
+        this.setState({query: request.query()});
     },
 
     onTextAreaChange(value, index) {
-        console.log(value);
-        console.log(index);
+        const {request} = this.props;
+        request.setParameterValue(index, value);
+        app.request = request;
+        this.setState({query: request.query()});
+    },
+
+    onSubmit() {
+
+    },
+
+    componentWillReceiveProps(nextProps) {
+        const {query} = nextProps;
+        this.setState({query: query});
     },
 
     render() {
@@ -43,15 +55,14 @@ export default React.createClass({
                                 return <MethodTextarea key={'' + parameter.parameterPosition + request.operator.operatorType + methodIndex} parameter={parameter} textAreaChange={this.onTextAreaChange} />
                             })}
                         </div>
+                        <button className="pure-button pure-input-1-3 pure-button-primary" onClick={this.onSubmit}>Submit Query</button>
+                        <textarea className="pure-input-1" type="text" value={this.state.query} readOnly></textarea>
                     </fieldset>
                 </form>
             </div>
         )
     }
 });
-
-//label(data-bind="attr:{id: parameterPosition}, text: parameterType")
-//textarea(type="text" class="pure-input-1-2" data-bind="textInput: $parent.parameters()[$index()].value, attr:{placeholder: parameterName, id: parameterPosition}")
 //button(type="submit" class="pure-button pure-input-1-2 pure-button-primary" data-bind="click: $root.submitQuery")
 //| Submit Query
 //textarea(type="text" class="pure-input-1-2" data-bind="value: queryText" readonly)

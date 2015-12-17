@@ -18,15 +18,18 @@ export default React.createClass({
     getInitialState: function() {
         return {
             operators: app.operators,
-            request: app.request
+            request: app.request,
+            query: app.request.query()
         };
     },
 
     selectOperator(selectedOperator) {
-        const request = new Request({operator:selectedOperator, methodIndex: 0, jsonQuery: ''});
+        const request = new Request({operator:selectedOperator, methodIndex: 0});
         this.setState({
-            request: request
+            request: request,
+            query: request.query()
         });
+        debugger;
         app.request = request;
     },
 
@@ -45,7 +48,7 @@ export default React.createClass({
                         <LocationMap/>
                     </div>
                     <div>
-                        <MethodForm request={this.state.request}/>
+                        <MethodForm request={this.state.request} query={this.state.query}/>
                     </div>
                 </div>
             </NavHelper>

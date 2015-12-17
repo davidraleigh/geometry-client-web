@@ -21,14 +21,11 @@ export default React.createClass({
     render() {
         const {parameter} = this.props;
         const value = this.state.value;
-        debugger;
         return (
             <div>
                 <label>{parameter.parameterType}: {parameter.parameterName}</label>
-                <textarea className="pure-input-1" type="text" value={value} onChange={this.handleChange} />
+                <textarea className="pure-input-1" value={value} onChange={this.handleChange} />
             </div>
         )
     }
-
-
-})
+});
