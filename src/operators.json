@@ -3,7 +3,7 @@
         "operatorType" : "Union",
         "executeMethods" : [
             {
-                "returnType" : "GeometryArray",
+                "returnType" : "GeometryCursor",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -428,26 +428,27 @@
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
                         "parameterName" : "inputGeometries",
-                        "value" : "POLYGON((1 1,5 1,5 5,1 5,1 1),(2 2, 3 2, 3 3, 2 3,2 2))"
+                        "parameterValue" : "POLYGON((1 1,5 1,5 5,1 5,1 1),(2 2, 3 2, 3 3, 2 3,2 2))"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "wkid_sr",
                         "parameterType" : "SpatialReference",
-                        "parameterName" : "sr"
+                        "parameterName" : "sr",
+                        "parameterValue" : 4326
                     },
                     {
                         "parameterPosition" : 2,
                         "parameterType" : "Double[]",
                         "parameterName" : "distances",
-                        "value" : 2.0
+                        "parameterValue" : 2.0
                     },
                     {
                         "parameterPosition" : 3,
                         "parameterType" : "Boolean",
                         "parameterKey" : "input_booleans",
                         "parameterName" : "bUnion",
-                        "value" : false
+                        "parameterValue" : false
                     },
                     {
                         "parameterPosition" : 4,
@@ -464,21 +465,21 @@
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
                         "parameterName" : "inputGeometry",
-                        "value" : "POLYGON((1 1,5 1,5 5,1 5,1 1),(2 2, 3 2, 3 3, 2 3,2 2))"
+                        "parameterValue" : "POLYGON((1 1,5 1,5 5,1 5,1 1),(2 2, 3 2, 3 3, 2 3,2 2))"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "wkid_sr",
                         "parameterType" : "SpatialReference",
                         "parameterName" : "sr",
-                        "value" : 4326
+                        "parameterValue" : 4326
                     },
                     {
                         "parameterPosition" : 2,
                         "parameterKey" : "input_doubles",
                         "parameterType" : "Double",
                         "parameterName" : "distance",
-                        "value" : 2.0
+                        "parameterValue" : 2.0
                     },
                     {
                         "parameterPosition" : 3,
@@ -1129,7 +1130,7 @@
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
                         "parameterName" : "geom",
-                        "value" : "POLYGON((1 1,5 1,5 5,1 5,1 1),(2 2, 3 2, 3 3, 2 3,2 2))"
+                        "parameterValue" : "POLYGON((1 1,5 1,5 5,1 5,1 1),(2 2, 3 2, 3 3, 2 3,2 2))"
                     },
                     {
                         "parameterPosition" : 1,

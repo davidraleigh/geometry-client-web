@@ -16,7 +16,7 @@ export default React.createClass({
                 <a className="pure-menu-heading" href="#">Operators</a>
                 <ul className="pure-menu-list">
                     {
-                        operators.map((operator) => <OperatorItem key={operator.id} operator={operator} selectOperator={selectOperator}></OperatorItem>)
+                        operators.map((operator) => <OperatorItem key={operator.operatorType} operator={operator} selectOperator={selectOperator}></OperatorItem>)
                     }
                 </ul>
             </div>

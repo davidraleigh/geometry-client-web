@@ -2,8 +2,11 @@
  * Created by davidraleigh on 12/16/15.
  */
 import React from 'react'
+import ampersandMixin from 'ampersand-react-mixin'
 
 export default React.createClass({
+    mixins: [ampersandMixin],
+
     onClick(e) {
         e.preventDefault();
         const {onMethodSelect, methodIndex} = this.props;

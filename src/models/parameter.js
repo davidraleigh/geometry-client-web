@@ -13,9 +13,3 @@ export default Model.extend({
         parameterValue: 'string'
     }
 });
-
-
-//                        "parameterPosition" : 0,
-//                        "parameterKey" : "left_wkt_geometries",
-//                        "parameterType" : "GeometryCursor",
-//                        "parameterName" : "inputGeometries"

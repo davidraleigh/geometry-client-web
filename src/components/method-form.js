@@ -5,6 +5,7 @@ import React from 'react'
 import ampMixin from 'ampersand-react-mixin'
 
 import MethodButton from './method-button'
+import MethodTextarea from './method-textarea'
 
 export default React.createClass({
     mixins: [ampMixin],
@@ -21,26 +22,25 @@ export default React.createClass({
         this.setState({methodIndex: index});
     },
 
-    render() {
-        debugger;
-        const {request} = this.props;
+    onTextAreaChange(value, index) {
+        console.log(value);
+        console.log(index);
+    },
 
+    render() {
+        const {request} = this.props;
+        const methodIndex = request.methodIndex;
         return (
             <div>
-                <a>{request.operator.operatorType}</a>
                 <form className="pure-form">
                     <fieldset className="pure-group">
+                        <a style={{"fontSize": "x-large"}}>{request.operator.operatorType}</a>
                         <div className="pure-input">
                             {request.operator.executeMethods.map((method, index) => {
-                                return <MethodButton returnType={method.returnType} methodIndex={index} active={(this.state.methodIndex === index)} onMethodSelect={this.onMethodSelect}/>
+                                return <MethodButton key={index} returnType={method.returnType} methodIndex={index} active={(methodIndex === index)} onMethodSelect={this.onMethodSelect}/>
                             })}
-                            {request.operator.executeMethods[this.state.methodIndex].parameters.map((param) => {
-                                return (
-                                    <div>
-                                        <label>{param.parameterType}: {param.parameterName}</label>
-                                        <textarea className="pure-input-1"></textarea>
-                                    </div>
-                                )
+                            {request.operator.executeMethods[methodIndex].parameters.map((parameter) => {
+                                return <MethodTextarea key={'' + parameter.parameterPosition + request.operator.operatorType + methodIndex} parameter={parameter} textAreaChange={this.onTextAreaChange} />
                             })}
                         </div>
                     </fieldset>
