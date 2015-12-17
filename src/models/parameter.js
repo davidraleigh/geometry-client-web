@@ -9,7 +9,8 @@ export default Model.extend({
         parameterPosition: 'number',
         parameterName: 'string',
         parameterType: 'string',
-        parameterKey: 'string'
+        parameterKey: 'string',
+        parameterValue: 'string'
     }
 });
 

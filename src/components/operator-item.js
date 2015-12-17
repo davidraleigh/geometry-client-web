@@ -3,16 +3,23 @@
  */
 import React from 'react'
 import ampMixin from 'ampersand-react-mixin'
+import app from 'ampersand-app'
+import Operator from '../models/operator'
 
 export default React.createClass({
     mixins: [ampMixin],
+
+    onClick() {
+        const {selectOperator} = this.props;
+        selectOperator(this.props.operator);
+    },
 
     render() {
         const {operator} = this.props;
 
         return (
-            <li key={operator.id} className="pure-menu-item">
-                <a href="/" className="pure-menu-link">{operator.operatorType}</a>
+            <li className="pure-menu-item">
+                <a onClick={this.onClick} href="/" className="pure-menu-link">{operator.operatorType}</a>
             </li>
         )
     }
