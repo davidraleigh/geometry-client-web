@@ -10,13 +10,13 @@ export default React.createClass({
     mixins: [ampMixin],
 
     render() {
-        const {operators, selectOperator} = this.props;
+        const {operators, onSelect} = this.props;
         return (
             <div id="menu">
                 <a className="pure-menu-heading" href="#">Operators</a>
                 <ul className="pure-menu-list">
                     {
-                        operators.map((operator) => <OperatorItem key={operator.operatorType} operator={operator} selectOperator={selectOperator}></OperatorItem>)
+                        operators.map((operator) => <OperatorItem key={operator.operatorType} operator={operator} onSelect={onSelect}></OperatorItem>)
                     }
                 </ul>
             </div>

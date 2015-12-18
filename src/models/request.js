@@ -2,11 +2,15 @@
  * Created by davidraleigh on 12/17/15.
  */
 import Model from 'ampersand-model'
+import wellknown from 'wellknown'
 
 export default Model.extend({
     props: {
         operator: 'object',
-        methodIndex: 'number'
+        methodIndex: 'number',
+        //left_geojson_geometries: "",
+        //right_geojson_geometries: "",
+        //result_geometries: ""
     },
 
     derived: {
@@ -19,20 +23,12 @@ export default Model.extend({
     },
 
     setParameterValue(parameterPosition, parameterValue) {
+        debugger;
         this.method.parameters[parameterPosition].parameterValue = parameterValue;
     },
 
     query() {
         debugger;
-        const method = this.operator.executeMethods[this.methodIndex];
-        let obj = {};
-        obj["operator_name"] = this.operator.operatorType;
-        for (var i = 0; i < method.parameters.length; i++) {
-            var param = method.parameters[i];
-            if (param.hasOwnProperty("parameterKey") && method.parameters[i].hasOwnProperty("parameterValue")) {
-                obj[param["parameterKey"]] = method.parameters[i].parameterValue;
-            }
-        }
-        return JSON.stringify(obj, null, '\t');
+        return this.operator.query;
     }
 })

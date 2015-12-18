@@ -12,10 +12,11 @@ export default React.createClass({
         return {value: parameter.parameterValue, position: parameter.parameterPosition};
     },
 
-    handleChange(event) {
-        const {textAreaChange} = this.props;
+    onChange(event) {
+        debugger;
+        const {onTextAreaChange} = this.props;
         this.setState({value: event.target.value});
-        textAreaChange(event.target.value, this.state.position);
+        onTextAreaChange(event.target.value, this.state.position);
     },
 
     render() {
@@ -24,7 +25,7 @@ export default React.createClass({
         return (
             <div>
                 <label>{parameter.parameterType}: {parameter.parameterName}</label>
-                <textarea className="pure-input-1" value={value} onChange={this.handleChange} />
+                <textarea className="pure-input-1" value={value} onChange={this.onChange} />
             </div>
         )
     }

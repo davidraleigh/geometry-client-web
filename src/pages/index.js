@@ -10,7 +10,6 @@ import LocationMap from '../components/location-map'
 import LeafletView from '../components/leaflet-view'
 import OperatorMenu from '../components/operator-menu'
 import MethodForm from '../components/method-form'
-import Request from '../models/request'
 
 export default React.createClass({
     mixins: [ampMixin],
@@ -18,26 +17,24 @@ export default React.createClass({
     getInitialState: function() {
         return {
             operators: app.operators,
-            request: app.request,
-            query: app.request.query()
+            selectedOperator: app.selectedOperator,
+            query: app.selectedOperator.query
         };
     },
 
-    selectOperator(selectedOperator) {
-        const request = new Request({operator:selectedOperator, methodIndex: 0});
+    onSelect(selectedOperator) {
         this.setState({
-            request: request,
-            query: request.query()
+            selectedOperator: selectedOperator,
+            query: selectedOperator.query
         });
-        debugger;
-        app.request = request;
+        app.selectedOperator = selectedOperator;
     },
 
     render() {
         return (
             <NavHelper className='container'>
                 <div id="layout">
-                    <OperatorMenu operators={app.operators} selectOperator={this.selectOperator}/>
+                    <OperatorMenu operators={app.operators} onSelect={this.onSelect}/>
                     <header role='banner'>
                         <h1>Geometry Micro-Service</h1>
                     </header>
@@ -45,10 +42,7 @@ export default React.createClass({
                         Demo for the geometry-api-java automated conversion to C#
                     </p>
                     <div>
-                        <LocationMap/>
-                    </div>
-                    <div>
-                        <MethodForm request={this.state.request} query={this.state.query}/>
+                        <MethodForm selectedOperator={this.state.selectedOperator} query={this.state.query}/>
                     </div>
                 </div>
             </NavHelper>

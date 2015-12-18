@@ -10,8 +10,8 @@ export default React.createClass({
     mixins: [ampMixin],
 
     onClick() {
-        const {selectOperator} = this.props;
-        selectOperator(this.props.operator);
+        const {onSelect} = this.props;
+        onSelect(this.props.operator);
     },
 
     render() {

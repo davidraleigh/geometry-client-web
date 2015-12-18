@@ -10,6 +10,7 @@ import LeafletMap from './leaflet-map'
 
 export default React.createClass({
     render: function() {
+        const {left_wkt_geometries, right_wkt_geometries, result_geometries} = this.props;
         return <LeafletView style={{height: '260px'}}></LeafletView>;
     }
 });

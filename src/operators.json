@@ -361,19 +361,22 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom1"
+                        "parameterName" : "inputGeom1",
+                        "parameterValue" : "POLYGON((-117 20, -100 20, -100 10, -117 10))"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom2"
+                        "parameterName" : "inputGeom2",
+                        "parameterValue" : "POLYGON((-117 20, -108 25, -100 20, -100 30))"
                     },
                     {
                         "parameterPosition" : 2,
                         "parameterKey" : "wkid_sr",
                         "parameterType" : "SpatialReference",
-                        "parameterName" : "sr"
+                        "parameterName" : "sr",
+                        "parameterValue" : 4326
                     },
                     {
                         "parameterPosition" : 3,

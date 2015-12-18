@@ -10,6 +10,6 @@ export default Model.extend({
         parameterName: 'string',
         parameterType: 'string',
         parameterKey: 'string',
-        parameterValue: 'string'
+        parameterValue: 'any'
     }
 });
