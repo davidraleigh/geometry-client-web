@@ -30,6 +30,8 @@ export default React.createClass({
         app.selectedOperator = selectedOperator;
         this.setState({selectedOperator: selectedOperator});
         this.setState({query: selectedOperator.query()});
+        this.setState({left_geojson_geometries: selectedOperator.method.left_geojson_geometries()});
+        this.setState({right_geojson_geometries: selectedOperator.method.right_geojson_geometries()});
         //var parameters = request.operator[request.methodIndex].parameters;
     },
 
@@ -39,6 +41,8 @@ export default React.createClass({
         app.selectedOperator = selectedOperator;
         this.setState({selectedOperator: selectedOperator});
         this.setState({query: selectedOperator.query()});
+        this.setState({left_geojson_geometries: selectedOperator.method.left_geojson_geometries()});
+        this.setState({right_geojson_geometries: selectedOperator.method.right_geojson_geometries()});
     },
 
     onSubmit(event) {
@@ -47,8 +51,9 @@ export default React.createClass({
 
     componentWillReceiveProps(nextProps) {
         const {selectedOperator} = nextProps;
-        debugger;
         this.setState({query: selectedOperator.query()});
+        this.setState({left_geojson_geometries: selectedOperator.method.left_geojson_geometries()});
+        this.setState({right_geojson_geometries: selectedOperator.method.right_geojson_geometries()});
     },
 
     render() {
@@ -56,7 +61,7 @@ export default React.createClass({
         return (
             <div>
                 <div>
-                    <LeafletView leftGeoemtries={this.state.left_wkt_geometries} rightGeometries={this.state.right_wkt_geometries} resultGeometries={this.state.result_geometries}/>
+                    <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries} resultGeometries={this.state.result_geometries}/>
                 </div>
                 <form className="pure-form">
                     <fieldset className="pure-group">

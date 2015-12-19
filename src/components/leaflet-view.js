@@ -7,19 +7,50 @@ import L from '../helpers/leaflet'
 import markerImg from '../styles/images/marker-icon.png'
 
 export default React.createClass({
+
+    getInitialState() {
+        const {selectedOperator} = this.props;
+        return {
+            left_geometries_layer: "",
+            right_geometries_layer: "",
+            left_geojson_geometries: "",
+            right_geojson_geometries: "",
+            result_geometries: "",
+            bounds: ""
+        };
+    },
+
     render() {
         return <div className='map' ref='mapClass' style={{height: '260px'}}></div>
     },
 
-    componentWillReceiveProps(nextProps) {
-        //const {left_wkt_geometries, right_wkt_geometries, result_geometries} = this.props;
+
+    componentDidUpdate(prevProps) {
         debugger;
-        //var polygon = L.polygon([
-        //    [51.509, -0.08],
-        //    [51.503, -0.06],
-        //    [51.51, -0.047]
-        //]).addTo(this._map);
-        //this.setState({query: query});
+        const {left_geojson_geometries, right_geojson_geometries, result_geometries} = this.props;
+        if (left_geojson_geometries && this.state.left_geojson_geometries != left_geojson_geometries) {
+            if (this.state.left_geometries_layer) {
+                this._map.removeLayer(this.state.left_geometries_layer);
+            }
+            let layer = L.geoJson(left_geojson_geometries, {style: {color: "#ff0000"}});
+            let bounds = layer.getBounds();
+            this.setState({left_geometries_layer: layer});
+            this.setState({left_geojson_geometries: left_geojson_geometries});
+            layer.addTo(this._map);
+            this._map.panInsideBounds(bounds);
+            //bounds = bounds.extend(this.state.bounds)
+
+        }
+        if (right_geojson_geometries && this.state.right_geojson_geometries != right_geojson_geometries) {
+            if (this.state.right_geometries_layer) {
+                this._map.removeLayer(this.state.right_geometries_layer);
+            }
+            let layer = L.geoJson(right_geojson_geometries, {style: {color: "#ff0000"}});
+            this.setState({right_geometries_layer: layer});
+            this.setState({right_geojson_geometries: right_geojson_geometries});
+            layer.addTo(this._map);
+        }
+
     },
 
     componentDidMount() {

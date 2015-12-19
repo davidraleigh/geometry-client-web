@@ -34,7 +34,7 @@ export default Model.extend({
         obj["operator_name"] = this.operatorType;
         for (var i = 0; i < this.method.parameters.length; i++) {
             var param = this.method.parameters.at(i);
-            var properties = param.getAttributes({props: true})
+            var properties = param.getAttributes({props: true});
             if (has(properties,"parameterKey") && has(properties, "parameterValue")) {
                 obj[param["parameterKey"]] = param.parameterValue;
             }
