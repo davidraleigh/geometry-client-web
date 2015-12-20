@@ -11,12 +11,10 @@ export default React.createClass({
     getInitialState() {
         const {selectedOperator} = this.props;
         return {
-            left_geometries_layer: "",
-            right_geometries_layer: "",
-            left_geojson_geometries: "",
-            right_geojson_geometries: "",
-            result_geometries: "",
-            bounds: ""
+            left_geometries_layer: null,
+            right_geometries_layer: null,
+            result_geometries_layer: null,
+            bounds: null
         };
     },
 
@@ -24,49 +22,81 @@ export default React.createClass({
         return <div className='map' ref='mapClass' style={{height: '260px'}}></div>
     },
 
+    //updateBounds() {
+    //    debugger;
+    //    let newBounds = null;
+    //    if (this.state.left_geojson_geometries &&
+    //        this.state.right_geojson_geometries) {
+    //        newBounds = this.state.left_geometries_layer.getBounds();
+    //        newBounds = newBounds.extend(this.state.right_geometries_layer.getBounds());
+    //    } else if (this.state.left_geojson_geometries) {
+    //        newBounds = this.state.left_geometries_layer.getBounds();
+    //    }
+    //
+    //    if (newBounds != this.state.bounds) {
+    //        this._map.fitBounds(newBounds);
+    //        this.setState({bounds: new})
+    //    }
+    //},
 
-    componentDidUpdate(prevProps) {
-        debugger;
+    mergeBounds(left_layer, right_layer) {
+        if (left_layer === null && right_layer === null) {
+            return null;
+        } else if (left_layer === null) {
+            return right_layer.getBounds();
+        } else if (right_layer === null) {
+            return left_layer.getBounds();
+        }
+        // TODO maybe there's a prettier leaflet function
+        return right_layer.getBounds().extend(left_layer.getBounds());
+    },
+
+    updateLeafletLayer(newGeoJSON, layerName) {
+        if (this.state[layerName]) {
+            // remove the previous geometries
+            this._map.removeLayer(this.state[layerName]);
+        }
+
+        if (newGeoJSON) {
+            // if the geomtries is not empty create a new layer
+            let layer = L.geoJson(newGeoJSON, {style: {color: "#ff0000"}});
+            this.setState({[layerName]: layer});
+            layer.addTo(this._map);
+            return layer;
+        } else {
+            // es6 computed keys :)
+            this.setState({[layerName]: null});
+            return null;
+        }
+    },
+
+    componentDidUpdate(prevProps, prevState) {
         const {left_geojson_geometries, right_geojson_geometries, result_geometries} = this.props;
-        let newBounds = null;
-        if (left_geojson_geometries && this.state.left_geojson_geometries != left_geojson_geometries) {
-            if (this.state.left_geometries_layer) {
-                this._map.removeLayer(this.state.left_geometries_layer);
-            }
-            let layer = L.geoJson(left_geojson_geometries, {style: {color: "#ff0000"}});
+        debugger;
 
-            if (!newBounds) {
-                newBounds = layer.getBounds();
-            }
-
-            this.setState({left_geometries_layer: layer});
-            this.setState({left_geojson_geometries: left_geojson_geometries});
-            layer.addTo(this._map);
-
-            //bounds = bounds.extend(this.state.bounds)
-
-        }
-        if (right_geojson_geometries && this.state.right_geojson_geometries != right_geojson_geometries) {
-            if (this.state.right_geometries_layer) {
-                this._map.removeLayer(this.state.right_geometries_layer);
-            }
-            let layer = L.geoJson(right_geojson_geometries, {style: {color: "#ff0000"}});
-
-            if (!newBounds) {
-                newBounds = layer.getBounds();
-            } else {
-                newBounds = newBounds.extend(layer.getBounds());
-            }
-
-            this.setState({right_geometries_layer: layer});
-            this.setState({right_geojson_geometries: right_geojson_geometries});
-            layer.addTo(this._map);
+        // if nothing has changed among the geometries exit
+        if (left_geojson_geometries === prevProps.left_geojson_geometries &&
+            right_geojson_geometries === prevProps.right_geojson_geometries &&
+            result_geometries === prevProps.result_geometries) {
+            return;
         }
 
-        if (newBounds) {
-            this._map.fitBounds(newBounds);
+        let leftLayer = null;
+        if (left_geojson_geometries != prevProps.left_geojson_geometries) {
+            leftLayer = this.updateLeafletLayer(left_geojson_geometries, "left_geometries_layer");
         }
 
+        let rightLayer = null;
+        if (right_geojson_geometries != prevProps.right_geojson_geometries) {
+            rightLayer = this.updateLeafletLayer(right_geojson_geometries, "right_geometries_layer");
+        }
+
+        const mergedBounds = this.mergeBounds(leftLayer, rightLayer);
+        if (mergedBounds) {
+            this._map.fitBounds(mergedBounds);
+            //TODO is this set state really necessasry?
+            this.setState({bounds: mergedBounds});
+        }
     },
 
     componentDidMount() {
@@ -87,40 +117,8 @@ export default React.createClass({
 
         this.setState({bounds: this._map.getBounds()});
 
-        //var geojsonFeature = {
-        //    "type": "Feature",
-        //    "properties": {
-        //        "name": "Coors Field",
-        //        "amenity": "Baseball Stadium",
-        //        "popupContent": "This is where the Rockies play!"
-        //    },
-        //    "geometry": {
-        //        "type": "Polygon",
-        //        "coordinates": [
-        //            [ [51.5072, 0.1275], [52.5072, 0.1275], [52.5072, 1.1275],
-        //                [51.5072, 1.1275], [51.5072, 0.1275] ]
-        //        ]
-        //    }
-        //};
-
         //var markerBlue = L.icon({
         //    iconUrl: markerImg
         //});
-        //L.marker([51.5, -0.09], {icon: markerBlue}).addTo(this._map)
-        //    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-        //    .openPopup();
-        //L.geoJson(geojsonFeature, {style: {color: "#ff0000"}}).addTo(this._map);
-        //var circle = L.circle([51.508, -0.11], 500, {
-        //    color: 'red',
-        //    fillColor: '#f03',
-        //    fillOpacity: 0.5
-        //}).addTo(this._map);
-        //var polygon = L.polygon([
-        //    [51.509, -0.08],
-        //    [51.503, -0.06],
-        //    [51.51, -0.047]
-        //]).addTo(this._map);
-        //L.polygon([ [51.5072, 0.1275], [52.5072, 0.1275], [52.5072, 1.1275],
-        //    [51.5072, 1.1275], [51.5072, 0.1275] ]).addTo(this._map);
     }
 })

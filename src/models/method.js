@@ -16,7 +16,6 @@ export default Model.extend({
     },
 
     getRequestValue(requestKey) {
-        debugger;
         for (var i = 0; i < this.parameters.length; i++) {
             var param = this.parameters.at(i);
             var properties = param.getAttributes({props: true});
