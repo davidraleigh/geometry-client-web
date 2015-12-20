@@ -74,7 +74,8 @@
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "GeometryCursor",
-                        "parameterName" : "subtractor"
+                        "parameterName" : "subtractor",
+                        "parameterValue" : "MULTIPOLYGON (((30 20, 45 40, 10 40, 30 20)),((15 5, 40 10, 10 20, 5 10, 15 5))) "
                     },
                     {
                         "parameterPosition" : 2,
@@ -437,7 +438,7 @@
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
                         "parameterName" : "inputGeometries",
-                        "parameterValue" : "POLYGON((1 1,5 1,5 5,1 5,1 1),(2 2, 3 2, 3 3, 2 3,2 2))"
+                        "parameterValue" : "LINESTRING (30 10, 10 30, 40 40)\nMULTILINESTRING ((10 10, 20 20, 10 40),(40 40, 30 30, 40 20, 30 10))"
                     },
                     {
                         "parameterPosition" : 1,
@@ -778,7 +779,8 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
-                        "parameterName" : "geoms"
+                        "parameterName" : "geoms",
+                        "parameterValue" : "MULTIPOLYGON (((10 10, 10 20, 40 20, 40 10, 60 10, 70 10)))\n MULTIPOLYGON (((10 10, 10 20, 40 20, 40 10, 60 10, 70 10)), ((100 10, 100 12, 100 13))) \nMULTIPOLYGON (((0 0, 0 15, 15 15, 15 0)), ((10 10, 10 20, 20 20, 20 10))) \nMULTIPOLYGON (((0 0, 0 15, 15 15, 15 0)), ((5 5, 5 6, 6 6, 6 5)))"
                     },
                     {
                         "parameterPosition" : 1,
@@ -806,7 +808,8 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "geom"
+                        "parameterName" : "geom",
+                        "parameterValue" : "MULTIPOLYGON (((10 10, 10 20, 40 20, 40 10, 60 10, 70 10)))"
                     },
                     {
                         "parameterPosition" : 1,
