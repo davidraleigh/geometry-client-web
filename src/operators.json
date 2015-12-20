@@ -75,7 +75,7 @@
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "GeometryCursor",
                         "parameterName" : "subtractor",
-                        "parameterValue" : "MULTIPOLYGON (((30 20, 45 40, 10 40, 30 20)),((15 5, 40 10, 10 20, 5 10, 15 5))) "
+                        "parameterValue" : "MULTIPOLYGON (((30 25, 45 40, 1 42, 30 25)),((15 5, 45 10, 15 20, 2 19, 15 5))) "
                     },
                     {
                         "parameterPosition" : 2,
@@ -132,13 +132,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom1"
+                        "parameterName" : "inputGeom1",
+                        "parameterValue" : "Polygon((0 0, 0 10, 10 10,10 0))"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom2"
+                        "parameterName" : "inputGeom2",
+                        "parameterValue" : "LINESTRING (-10 0, 0 0)"
                     },
                     {
                         "parameterPosition" : 2,
@@ -149,7 +151,8 @@
                     {
                         "parameterPosition" : 3,
                         "parameterType" : "String",
-                        "parameterName" : "de_9im_string"
+                        "parameterName" : "de_9im_string",
+                        "parameterValue" : "FF2FT****"
                     },
                     {
                         "parameterPosition" : 4,
