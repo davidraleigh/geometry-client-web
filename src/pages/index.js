@@ -36,10 +36,10 @@ export default React.createClass({
                 <div id="layout">
                     <OperatorMenu operators={app.operators} onSelect={this.onSelect}/>
                     <header role='banner'>
-                        <h1>Geometry Micro-Service</h1>
+                        <h1>Geometry Micro-Service Demo</h1>
                     </header>
                     <p>
-                        Demo for the geometry-api-java automated conversion to C#
+                        Demonstration of the C# computational geometry library that is continuously integrated port of ESRI's geometry-api-java library
                     </p>
                     <div>
                         <MethodForm selectedOperator={this.state.selectedOperator} query={this.state.query}/>
