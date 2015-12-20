@@ -28,11 +28,29 @@ export default Model.extend({
         return null;
     },
 
+    parseGeometries(wktGeometries) {
+        debugger;
+        var re = /(MULTIPOLYGON|MULTILINESTRING|MULTIPOINT|LINESTRING|POLYGON|POINT)/ig
+        var results;
+        let startIndex = 0;
+        let endIndex = 0;
+        let geoJSONgeometries = []
+        while ((results = re.exec(wktGeometries)) !== null) {
+            endIndex = results.index;
+            if (endIndex != 0)
+                geoJSONgeometries.push(wktParser(wktGeometries.slice(startIndex, endIndex)));
+            startIndex = results.index;
+        }
+        geoJSONgeometries.push(wktParser(wktGeometries.slice(startIndex)));
+        return geoJSONgeometries;
+    },
+
     getGeometryObj(geometryKey) {
         var wktGeometries = this.getRequestValue(geometryKey);
         if (wktGeometries === null)
             return;
-        return wktParser(wktGeometries);
+
+        return this.parseGeometries(wktGeometries);
     },
 
     left_geojson_geometries() {

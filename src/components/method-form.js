@@ -17,8 +17,8 @@ export default React.createClass({
         return {
             selectedOperator: selectedOperator,
             query: selectedOperator.query(),
-            left_geojson_geometries: "",
-            right_geojson_geometries: "",
+            left_geojson_geometries: selectedOperator.method.left_geojson_geometries(),
+            right_geojson_geometries: selectedOperator.method.right_geojson_geometries(),
             result_geometries: ""
         };
     },
