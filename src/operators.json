@@ -173,13 +173,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom1"
+                        "parameterName" : "inputGeom1",
+                        "parameterValue" : "POLYGON((-116 40, -120 39, -121 10, -111 12, -108 25))"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom2"
+                        "parameterName" : "inputGeom2",
+                        "parameterValue" : "POLYGON((-116 40, -120 39, -121 10, -111 12, -108 25))"
                     },
                     {
                         "parameterPosition" : 2,
@@ -206,13 +208,16 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom1"
+                        "parameterName" : "inputGeom1",
+                        "parameterValue" : "POLYGON((-116 40, -120 39, -121 10, -111 12, -108 25.001))"
+
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom2"
+                        "parameterName" : "inputGeom2",
+                        "parameterValue" : "POLYGON((-116 40, -120 39, -121 10, -111 12, -108 25))"
                     },
                     {
                         "parameterPosition" : 2,
@@ -441,7 +446,7 @@
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
                         "parameterName" : "inputGeometries",
-                        "parameterValue" : "LINESTRING (30 10, 10 30, 40 40)\nMULTILINESTRING ((10 10, 20 20, 10 40),(40 40, 30 30, 40 20, 30 10))"
+                        "parameterValue" : "LINESTRING (3 10, 10 32, 4 40, 5 4)\nMULTILINESTRING ((18 15, 2 2, 1 4),(3 38, 30 30, 35 20, 30 10, 5 0, 0 20))"
                     },
                     {
                         "parameterPosition" : 1,
