@@ -68,7 +68,7 @@
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
                         "parameterName" : "inputGeometries",
-                        "parameterValue" : "MULTIPOLYGON (((40 40, 20 45, 45 30, 40 40)), ((20 35, 45 20, 30 5, 10 10, 10 30, 20 35), (30 20, 20 25, 20 15, 30 20))) \nPOLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))\nMULTIPOLYGON (((30 20, 45 40, 10 40, 30 20)),((15 5, 40 10, 10 20, 5 10, 15 5)))"
+                        "parameterValue" : "MULTIPOLYGON (((40 40, 20 45, 45 30, 40 40)), ((20 35, 45 20, 30 5, 10 10, 10 30, 20 35), (30 20, 20 25, 20 15, 30 20))) \nPOLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
                     },
                     {
                         "parameterPosition" : 1,
