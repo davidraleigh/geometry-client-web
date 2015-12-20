@@ -32,7 +32,6 @@ export default React.createClass({
         this.setState({query: selectedOperator.query()});
         this.setState({left_geojson_geometries: selectedOperator.method.left_geojson_geometries()});
         this.setState({right_geojson_geometries: selectedOperator.method.right_geojson_geometries()});
-        //var parameters = request.operator[request.methodIndex].parameters;
     },
 
     onTextAreaChange(value, index) {
@@ -51,6 +50,7 @@ export default React.createClass({
 
     componentWillReceiveProps(nextProps) {
         const {selectedOperator} = nextProps;
+        this.setState({selectedOperator: selectedOperator});
         this.setState({query: selectedOperator.query()});
         this.setState({left_geojson_geometries: selectedOperator.method.left_geojson_geometries()});
         this.setState({right_geojson_geometries: selectedOperator.method.right_geojson_geometries()});

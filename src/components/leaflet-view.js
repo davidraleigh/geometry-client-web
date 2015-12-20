@@ -28,16 +28,21 @@ export default React.createClass({
     componentDidUpdate(prevProps) {
         debugger;
         const {left_geojson_geometries, right_geojson_geometries, result_geometries} = this.props;
+        let newBounds = null;
         if (left_geojson_geometries && this.state.left_geojson_geometries != left_geojson_geometries) {
             if (this.state.left_geometries_layer) {
                 this._map.removeLayer(this.state.left_geometries_layer);
             }
             let layer = L.geoJson(left_geojson_geometries, {style: {color: "#ff0000"}});
-            let bounds = layer.getBounds();
+
+            if (!newBounds) {
+                newBounds = layer.getBounds();
+            }
+
             this.setState({left_geometries_layer: layer});
             this.setState({left_geojson_geometries: left_geojson_geometries});
             layer.addTo(this._map);
-            this._map.panInsideBounds(bounds);
+
             //bounds = bounds.extend(this.state.bounds)
 
         }
@@ -46,9 +51,20 @@ export default React.createClass({
                 this._map.removeLayer(this.state.right_geometries_layer);
             }
             let layer = L.geoJson(right_geojson_geometries, {style: {color: "#ff0000"}});
+
+            if (!newBounds) {
+                newBounds = layer.getBounds();
+            } else {
+                newBounds = newBounds.extend(layer.getBounds());
+            }
+
             this.setState({right_geometries_layer: layer});
             this.setState({right_geojson_geometries: right_geojson_geometries});
             layer.addTo(this._map);
+        }
+
+        if (newBounds) {
+            this._map.fitBounds(newBounds);
         }
 
     },
@@ -69,40 +85,42 @@ export default React.createClass({
             ]
         });
 
-        var geojsonFeature = {
-            "type": "Feature",
-            "properties": {
-                "name": "Coors Field",
-                "amenity": "Baseball Stadium",
-                "popupContent": "This is where the Rockies play!"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [ [51.5072, 0.1275], [52.5072, 0.1275], [52.5072, 1.1275],
-                        [51.5072, 1.1275], [51.5072, 0.1275] ]
-                ]
-            }
-        };
+        this.setState({bounds: this._map.getBounds()});
 
-        var markerBlue = L.icon({
-            iconUrl: markerImg
-        });
-        L.marker([51.5, -0.09], {icon: markerBlue}).addTo(this._map)
-            .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-            .openPopup();
-        L.geoJson(geojsonFeature, {style: {color: "#ff0000"}}).addTo(this._map);
-        var circle = L.circle([51.508, -0.11], 500, {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.5
-        }).addTo(this._map);
-        var polygon = L.polygon([
-            [51.509, -0.08],
-            [51.503, -0.06],
-            [51.51, -0.047]
-        ]).addTo(this._map);
-        L.polygon([ [51.5072, 0.1275], [52.5072, 0.1275], [52.5072, 1.1275],
-            [51.5072, 1.1275], [51.5072, 0.1275] ]).addTo(this._map);
+        //var geojsonFeature = {
+        //    "type": "Feature",
+        //    "properties": {
+        //        "name": "Coors Field",
+        //        "amenity": "Baseball Stadium",
+        //        "popupContent": "This is where the Rockies play!"
+        //    },
+        //    "geometry": {
+        //        "type": "Polygon",
+        //        "coordinates": [
+        //            [ [51.5072, 0.1275], [52.5072, 0.1275], [52.5072, 1.1275],
+        //                [51.5072, 1.1275], [51.5072, 0.1275] ]
+        //        ]
+        //    }
+        //};
+
+        //var markerBlue = L.icon({
+        //    iconUrl: markerImg
+        //});
+        //L.marker([51.5, -0.09], {icon: markerBlue}).addTo(this._map)
+        //    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+        //    .openPopup();
+        //L.geoJson(geojsonFeature, {style: {color: "#ff0000"}}).addTo(this._map);
+        //var circle = L.circle([51.508, -0.11], 500, {
+        //    color: 'red',
+        //    fillColor: '#f03',
+        //    fillOpacity: 0.5
+        //}).addTo(this._map);
+        //var polygon = L.polygon([
+        //    [51.509, -0.08],
+        //    [51.503, -0.06],
+        //    [51.51, -0.047]
+        //]).addTo(this._map);
+        //L.polygon([ [51.5072, 0.1275], [52.5072, 0.1275], [52.5072, 1.1275],
+        //    [51.5072, 1.1275], [51.5072, 0.1275] ]).addTo(this._map);
     }
 })
