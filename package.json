@@ -50,7 +50,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "deploy": "surge -p public -d labelr.surge.sh",
+    "deploy": "surge -p public -d geometry.surge.sh",
     "start": "webpack-dev-server"
   },
   "jshintConfig": {

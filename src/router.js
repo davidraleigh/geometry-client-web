@@ -9,7 +9,7 @@ import qs from 'qs'
 import xhr from 'xhr'
 import sideStyle from './styles/side-menu.css'
 
-import Layout from './layout'
+//import Layout from './layout'
 import IndexPage from './pages/index'
 
 export default Router.extend({
@@ -20,12 +20,12 @@ export default Router.extend({
 
 
     renderPage(page, opts = {layout: true}) {
-        if (opts.layout) {
-            page = (
-                <Layout user={app.user}/*now any time user changes, this mixin spec forces a Layout refresh*/>
-                    {page}
-                </Layout>)
-        }
+        //if (opts.layout) {
+        //    page = (
+        //        <Layout user={app.user}/*now any time user changes, this mixin spec forces a Layout refresh*/>
+        //            {page}
+        //        </Layout>)
+        //}
 
         ReactDOM.render(page, document.body);
     },
