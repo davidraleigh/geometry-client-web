@@ -34,7 +34,7 @@ export default React.createClass({
         return right_layer.getBounds().extend(left_layer.getBounds());
     },
 
-    updateLeafletLayer(newGeoJSON, layerName, color) {
+    updateLeafletLayer(newGeoJSON, layerName, styleDetails) {
         if (this.state[layerName]) {
             // remove the previous geometries
             this._map.removeLayer(this.state[layerName]);
@@ -42,7 +42,7 @@ export default React.createClass({
 
         if (newGeoJSON) {
             // if the geomtries is not empty create a new layer
-            let layer = L.geoJson(newGeoJSON, {style: {color: color}});
+            let layer = L.geoJson(newGeoJSON, {style: styleDetails});
             this.setState({[layerName]: layer});
             layer.addTo(this._map);
             return layer;
@@ -67,12 +67,12 @@ export default React.createClass({
 
         let leftLayer = null;
         if (left_geojson_geometries != prevProps.left_geojson_geometries) {
-            leftLayer = this.updateLeafletLayer(left_geojson_geometries, "left_geometries_layer",  "#ff0000");
+            leftLayer = this.updateLeafletLayer(left_geojson_geometries, "left_geometries_layer",  {color : "#ff0000", icon:{iconUrl:markerImg}});
         }
 
         let rightLayer = null;
         if (right_geojson_geometries != prevProps.right_geojson_geometries) {
-            rightLayer = this.updateLeafletLayer(right_geojson_geometries, "right_geometries_layer",  "#0000ff");
+            rightLayer = this.updateLeafletLayer(right_geojson_geometries, "right_geometries_layer", {color : "#0000ff", icon:{iconUrl:markerImg}});
         }
 
         const mergedBounds = this.mergeBounds(leftLayer, rightLayer);

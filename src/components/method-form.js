@@ -9,6 +9,9 @@ import LeafletView from './leaflet-view'
 import MethodButton from './method-button'
 import MethodTextarea from './method-textarea'
 
+//var WebSocket = require('ws');
+//var ws = new WebSocket('ws://www.host.com/path');
+
 export default React.createClass({
     mixins: [ampMixin],
 

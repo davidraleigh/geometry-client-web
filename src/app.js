@@ -7,7 +7,6 @@ import OperatorCollection from './models/operator-collection'
 import Parameter from './models/parameter'
 import operators from './operators.json'
 
-// access app from console
 window.app = app;
 
 app.extend({
@@ -20,3 +19,4 @@ app.extend({
 });
 
 app.init();
+
