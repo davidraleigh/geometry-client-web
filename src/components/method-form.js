@@ -49,9 +49,9 @@ export default React.createClass({
     onSubmit(event) {
         event.preventDefault();
         this.setState({result_geometries: "updated"});
-        var websocket = new WebSocket('ws://echo.websocket.org');
+        let websocket = new WebSocket('ws://localhost:8080');//'ws://echo.websocket.org');
         websocket.onopen = (evt) => {
-            this.setState({result_geometries: "Connected"});
+            this.setState({result_geometries: "Sending Query"});
             websocket.send(this.state.query);
         };
         debugger;
@@ -63,43 +63,9 @@ export default React.createClass({
         websocket.onclose = (evt) => {
             this.setState({result_geometries:"DISCONNECTED"});
         };
-        //function testWebSocket()
-        //{
-        //
-        //    var websocket = new WebSocket('ws://echo.websocket.org');
-        //    websocket.onopen = function(evt) { onOpen(evt) };
-        //    websocket.onclose = function(evt) { onClose(evt) };
-        //    websocket.onmessage = function(evt) { onMessage(evt) };
-        //    websocket.onerror = function(evt) { onError(evt) };
-        //}
-        //
-        //function onOpen(evt)
-        //{
-        //    writeToScreen("CONNECTED");
-        //    doSend("WebSocket rocks");
-        //}
-        //
-        //function onClose(evt)
-        //{
-        //    writeToScreen("DISCONNECTED");
-        //}
-        //
-        //function onMessage(evt)
-        //{
-        //    writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>');
-        //    websocket.close();
-        //}
-        //
-        //function onError(evt)
-        //{
-        //    writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
-        //}
-        //
-        //function doSend(message)
-        //{
-        //    writeToScreen("SENT: " + message);
-        //    websocket.send(message);
-        //}
+        websocket.onerror = (evt) => {
+            this.setState({result_geometries: "Failed to submit. Error: " + evt.data});
+        };
     },
 
     componentWillReceiveProps(nextProps) {

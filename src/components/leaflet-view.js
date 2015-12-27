@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import L from '../helpers/leaflet'
+import L from '../helpers/leaflet-src'
 import markerImg from '../styles/images/marker-icon.png'
 
 export default React.createClass({
@@ -40,9 +40,17 @@ export default React.createClass({
             this._map.removeLayer(this.state[layerName]);
         }
 
+        let featureOptions = {
+            style : styleDetails,
+            pointToLayer: function(feature, latlng) {
+                return new L.CircleMarker(latlng, {radius: 10, fillOpacity: 0.85});
+            }
+        };
+        
         if (newGeoJSON) {
+            debugger;
             // if the geomtries is not empty create a new layer
-            let layer = L.geoJson(newGeoJSON, {style: styleDetails});
+            let layer = L.geoJson(newGeoJSON, featureOptions);
             this.setState({[layerName]: layer});
             layer.addTo(this._map);
             return layer;
@@ -65,14 +73,17 @@ export default React.createClass({
             return;
         }
 
+        var markerBlue = L.icon({
+            iconUrl: markerImg
+        });
         let leftLayer = null;
         if (left_geojson_geometries != prevProps.left_geojson_geometries) {
-            leftLayer = this.updateLeafletLayer(left_geojson_geometries, "left_geometries_layer",  {color : "#ff0000", icon:{iconUrl:markerImg}});
+            leftLayer = this.updateLeafletLayer(left_geojson_geometries, "left_geometries_layer",  {color : "#ff0000"});
         }
 
         let rightLayer = null;
         if (right_geojson_geometries != prevProps.right_geojson_geometries) {
-            rightLayer = this.updateLeafletLayer(right_geojson_geometries, "right_geometries_layer", {color : "#0000ff", icon:{iconUrl:markerImg}});
+            rightLayer = this.updateLeafletLayer(right_geojson_geometries, "right_geometries_layer", {color : "#0000ff"});
         }
 
         const mergedBounds = this.mergeBounds(leftLayer, rightLayer);
@@ -100,14 +111,15 @@ export default React.createClass({
             ]
         });
 
+        debugger;
         let leftLayer = null;
         if (left_geojson_geometries) {
-            leftLayer = this.updateLeafletLayer(left_geojson_geometries, "left_geometries_layer",  "#ff0000");
+            leftLayer = this.updateLeafletLayer(left_geojson_geometries, "left_geometries_layer",  {color : "#ff0000", icon:{iconUrl:markerImg}});
         }
 
         let rightLayer = null;
         if (right_geojson_geometries) {
-            rightLayer = this.updateLeafletLayer(right_geojson_geometries, "right_geometries_layer",  "#0000ff");
+            rightLayer = this.updateLeafletLayer(right_geojson_geometries, "right_geometries_layer",  {color : "#0000ff", icon:{iconUrl:markerImg}});
         }
 
         const mergedBounds = this.mergeBounds(leftLayer, rightLayer);

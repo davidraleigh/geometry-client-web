@@ -277,7 +277,8 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom1"
+                        "parameterName" : "inputGeom1",
+                        "parameterValue" : "MULTIPOINT (10 40, 40 30, 20 20, 30 10)"
                     },
                     {
                         "parameterPosition" : 1,
