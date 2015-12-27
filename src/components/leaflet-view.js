@@ -19,7 +19,7 @@ export default React.createClass({
     },
 
     render() {
-        return <div className='map' ref='mapClass' style={{height: '260px'}}></div>
+        return <div className='map' ref='mapClass' style={{height: '400px'}}></div>
     },
 
     mergeBounds(left_layer, right_layer) {
@@ -46,7 +46,7 @@ export default React.createClass({
                 return new L.CircleMarker(latlng, {radius: 10, fillOpacity: 0.85});
             }
         };
-        
+
         if (newGeoJSON) {
             debugger;
             // if the geomtries is not empty create a new layer

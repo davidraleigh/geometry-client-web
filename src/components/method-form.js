@@ -80,8 +80,13 @@ export default React.createClass({
         const {selectedOperator} = this.props;
         return (
             <div>
-                <div>
-                    <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries} resultGeometries={this.state.result_geometries}/>
+                 <div className="pure-g">
+                     <div className="pure-u-1-2">
+                         <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries} resultGeometries={this.state.result_geometries}/>
+                     </div>
+                     <div className="pure-u-1-2">
+                         <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries} resultGeometries={this.state.result_geometries}/>
+                     </div>
                 </div>
                 <form className="pure-form">
                     <fieldset className="pure-group">

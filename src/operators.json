@@ -284,7 +284,8 @@
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom2"
+                        "parameterName" : "inputGeom2",
+                        "parameterValue" : "POLYGON((0 50, 0 0, 55 0, 55 50, 0 50))"
                     },
                     {
                         "parameterPosition" : 2,
@@ -608,13 +609,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeometry"
+                        "parameterName" : "inputGeometry",
+                        "parameterValue" : "LINESTRING(-117 20, -117 10, -130 10, -130 20, -117 20)"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "intersector"
+                        "parameterName" : "intersector",
+                        "parameterValue" : "POLYGON((-116 20, -131 10, -121 30, -116 20))"
                     },
                     {
                         "parameterPosition" : 2,
