@@ -40,6 +40,7 @@ export default React.createClass({
             this._map.removeLayer(this.state[layerName]);
         }
 
+        //http://jsfiddle.net/erictheise/HQhzr/22/
         let featureOptions = {
             style : styleDetails,
             pointToLayer: function(feature, latlng) {
