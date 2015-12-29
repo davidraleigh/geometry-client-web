@@ -40,6 +40,9 @@ export default Model.extend({
                     param["parameterKey"] != "right_wkt_geometries" &&
                     param["parameterKey"] != "input_doubles") {
                     obj[param["parameterKey"]] = param.parameterValue;
+                } else if (param["parameterKey"] === "left_wkt_geometries" ||
+                           param["parameterKey"] === "right_wkt_geometries") {
+                    obj[param["parameterKey"]] = this.method.parseToWKTArray(param.parameterValue);
                 } else {
                     obj[param["parameterKey"]] = [param.parameterValue];
                 }

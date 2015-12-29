@@ -28,21 +28,43 @@ export default Model.extend({
         return null;
     },
 
-    parseGeometries(wktGeometries) {
+
+    // TODO this cleanup logic should maybe enforced on the input instead of at the model?
+    parseToWKTArray(wktGeometries) {
         debugger;
         var re = /(MULTIPOLYGON|MULTILINESTRING|MULTIPOINT|LINESTRING|POLYGON|POINT)/ig
         var results;
         let startIndex = 0;
         let endIndex = 0;
-        let geoJSONgeometries = []
+        let geometries = []
         while ((results = re.exec(wktGeometries)) !== null) {
             endIndex = results.index;
-            if (endIndex != 0)
-                geoJSONgeometries.push(wktParser(wktGeometries.slice(startIndex, endIndex)));
+            if (endIndex != 0) {
+                // if the last char isn't a ')' value skip it (removes commas and other weird stuff)
+                while (wktGeometries[endIndex - 1] != ')' && endIndex > startIndex) {
+                    endIndex -= 1;
+                }
+                geometries.push(wktGeometries.slice(startIndex, endIndex).trim());
+            }
+
             startIndex = results.index;
         }
-        geoJSONgeometries.push(wktParser(wktGeometries.slice(startIndex)));
-        return geoJSONgeometries;
+        endIndex = wktGeometries.length;
+
+        // TODO maybe this whole logic flow would be prettier as a do-while? has a do-while ever been pretty?
+        while (wktGeometries[endIndex - 1] != ')' && endIndex > startIndex) {
+            endIndex -= 1;
+        }
+        geometries.push(wktGeometries.slice(startIndex, endIndex).trim());
+        return geometries;
+    },
+
+    parseToGeoJSONArray(wktGeometries) {
+        debugger;
+        return this.parseToWKTArray(wktGeometries).map(function(value) {
+            debugger;
+            return wktParser(value);
+        });
     },
 
     getGeometryObj(geometryKey) {
@@ -50,7 +72,7 @@ export default Model.extend({
         if (wktGeometries === null)
             return;
 
-        return this.parseGeometries(wktGeometries);
+        return this.parseToGeoJSONArray(wktGeometries);
     },
 
     left_geojson_geometries() {
