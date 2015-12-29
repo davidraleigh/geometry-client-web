@@ -244,13 +244,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom1"
+                        "parameterName" : "inputGeom1",
+                        "parameterValue" : "LINESTRING(30 30, 35 30, 40 30, 45 30)"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom2"
+                        "parameterName" : "inputGeom2",
+                        "parameterValue" : "LINESTRING(30 30, 35 20, 40 15, 45 10)"
                     },
                     {
                         "parameterPosition" : 2,
@@ -312,13 +314,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom1"
+                        "parameterName" : "inputGeom1",
+                        "parameterValue" : "POLYGON((0 50, 0 0, 55 0, 55 50, 0 50))"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom2"
+                        "parameterName" : "inputGeom2",
+                        "parameterValue" : "MULTIPOINT (10 40, 40 30, 20 20, 30 10)"
                     },
                     {
                         "parameterPosition" : 2,
@@ -345,13 +349,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom1"
+                        "parameterName" : "inputGeom1",
+                        "parameterValue" : "LINESTRING(30 20, 35 20, 40 20, 45 20)"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom2"
+                        "parameterName" : "inputGeom2",
+                        "parameterValue" : "LINESTRING(40 5, 40 10, 42 21, 40 25)"
                     },
                     {
                         "parameterPosition" : 2,
@@ -414,13 +420,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom1"
+                        "parameterName" : "inputGeom1",
+                        "parameterValue" : "POLYGON((10 10,50 10,50 50,10 50,10 10),(20 20, 30 20, 30 30, 20 30,20 20))"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeom2"
+                        "parameterName" : "inputGeom2",
+                        "parameterValue" : "POLYGON((25 25, 35 25, 35 35, 25 35, 25 25))"
                     },
                     {
                         "parameterPosition" : 2,
