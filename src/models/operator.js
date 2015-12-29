@@ -36,7 +36,14 @@ export default Model.extend({
             var param = this.method.parameters.at(i);
             var properties = param.getAttributes({props: true});
             if (has(properties,"parameterKey") && has(properties, "parameterValue")) {
-                obj[param["parameterKey"]] = param.parameterValue;
+                if (param["parameterKey"] != "left_wkt_geometries" &&
+                    param["parameterKey"] != "right_wkt_geometries" &&
+                    param["parameterKey"] != "input_doubles") {
+                    obj[param["parameterKey"]] = param.parameterValue;
+                } else {
+                    obj[param["parameterKey"]] = [param.parameterValue];
+                }
+
             }
         }
         return JSON.stringify(obj, null, '\t');

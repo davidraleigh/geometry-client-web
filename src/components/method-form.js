@@ -61,7 +61,8 @@ export default React.createClass({
             websocket.close();
         };
         websocket.onclose = (evt) => {
-            this.setState({result_geometries:"DISCONNECTED"});
+            console.log("disconnected");
+            //this.setState({result_geometries:"DISCONNECTED"});
         };
         websocket.onerror = (evt) => {
             this.setState({result_geometries: "Failed to submit. Error: " + evt.data});
