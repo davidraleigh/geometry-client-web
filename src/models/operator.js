@@ -33,8 +33,8 @@ export default Model.extend({
         let obj = {};
         obj["operator_name"] = this.operatorType;
         for (var i = 0; i < this.method.parameters.length; i++) {
-            var param = this.method.parameters.at(i);
-            var properties = param.getAttributes({props: true});
+            const param = this.method.parameters.at(i);
+            const properties = param.getAttributes({props: true});
             if (has(properties,"parameterKey") && has(properties, "parameterValue")) {
                 if (param["parameterKey"] != "left_wkt_geometries" &&
                     param["parameterKey"] != "right_wkt_geometries" &&

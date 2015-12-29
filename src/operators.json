@@ -150,8 +150,9 @@
                     },
                     {
                         "parameterPosition" : 3,
+                        "parameterKey" : "de_9im",
                         "parameterType" : "String",
-                        "parameterName" : "de_9im_string",
+                        "parameterName" : "Dimensionally Extended nine-Intersection Model",
                         "parameterValue" : "FF2FT****"
                     },
                     {
