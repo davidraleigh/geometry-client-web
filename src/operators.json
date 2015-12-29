@@ -529,13 +529,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "geom1"
+                        "parameterName" : "geom1",
+                        "parameterValue" : "MULTIPOINT(0 30, 15 15, 0 15)"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "geom2"
+                        "parameterName" : "geom2",
+                        "parameterValue" : "POLYGON((0 0, 0 10, 10 10, 10 0),(3 3, 7 3, 7 7, 3 7))"
                     },
                     {
                         "parameterPosition" : 2,
