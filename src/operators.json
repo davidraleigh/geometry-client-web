@@ -478,7 +478,7 @@
                         "parameterType" : "Boolean",
                         "parameterKey" : "input_booleans",
                         "parameterName" : "bUnion",
-                        "parameterValue" : false
+                        "parameterValue" : true
                     },
                     {
                         "parameterPosition" : 4,
@@ -509,7 +509,7 @@
                         "parameterKey" : "input_doubles",
                         "parameterType" : "Double",
                         "parameterName" : "distance",
-                        "parameterValue" : 2.0
+                        "parameterValue" : 0.4
                     },
                     {
                         "parameterPosition" : 3,
