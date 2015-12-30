@@ -13,7 +13,6 @@ export default React.createClass({
     },
 
     onChange(event) {
-        debugger;
         const {onTextAreaChange} = this.props;
         this.setState({value: event.target.value});
         onTextAreaChange(event.target.value, this.state.position);

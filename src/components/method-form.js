@@ -8,6 +8,8 @@ import LeafletView from './leaflet-view'
 //import LocationMap from './location-map'
 import MethodButton from './method-button'
 import MethodTextarea from './method-textarea'
+import wktParser from 'wellknown'
+import has from 'amp-has'
 
 var WebSocket = require('ws');
 
@@ -21,7 +23,8 @@ export default React.createClass({
             query: selectedOperator.query(),
             left_geojson_geometries: selectedOperator.method.left_geojson_geometries(),
             right_geojson_geometries: selectedOperator.method.right_geojson_geometries(),
-            result_geometries: "test"
+            result_geojson_geometries: {},
+            results: ""
         };
     },
 
@@ -48,24 +51,30 @@ export default React.createClass({
 
     onSubmit(event) {
         event.preventDefault();
-        this.setState({result_geometries: "updated"});
+        this.setState({results: "updated"});
         let websocket = new WebSocket('ws://localhost:8080');//'ws://echo.websocket.org');
         websocket.onopen = (evt) => {
-            this.setState({result_geometries: "Sending Query"});
+            this.setState({results: "Sending Query"});
             websocket.send(this.state.query);
         };
-        debugger;
+
         websocket.onmessage = (evt) => {
-            debugger;
-            this.setState({result_geometries: evt.data});
+            this.setState({results: evt.data});
+            app.selectedOperator.method.results = JSON.parse(evt.data);
+            if (has(app.selectedOperator.method.results, "geometry_results")) {
+                console.log(wktParser(app.selectedOperator.method.results["geometry_results"]));
+                this.setState({result_geojson_geometries: wktParser(app.selectedOperator.method.results["geometry_results"])});
+                console.log("geometry_results exists");
+            }
+
             websocket.close();
         };
         websocket.onclose = (evt) => {
             console.log("disconnected");
-            //this.setState({result_geometries:"DISCONNECTED"});
+            //this.setState({results:"DISCONNECTED"});
         };
         websocket.onerror = (evt) => {
-            this.setState({result_geometries: "Failed to submit. Error: " + evt.data});
+            this.setState({results: "Failed to submit. Error: " + evt.data});
         };
     },
 
@@ -83,10 +92,10 @@ export default React.createClass({
             <div>
                  <div className="pure-g">
                      <div className="pure-u-1-2">
-                         <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries} resultGeometries={this.state.result_geometries}/>
+                         <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries}/>
                      </div>
                      <div className="pure-u-1-2">
-                         <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries} resultGeometries={this.state.result_geometries}/>
+                         <LeafletView result_geojson_geometries={this.state.result_geojson_geometries}/>
                      </div>
                 </div>
                 <form className="pure-form">
@@ -109,7 +118,7 @@ export default React.createClass({
 
                             <div className="pure-u-1-2">
                                 <label>Results:</label>
-                                <textarea className="pure-input-1" type="text" rows="8" value={this.state.result_geometries} readOnly></textarea>
+                                <textarea className="pure-input-1" type="text" rows="8" value={this.state.results} readOnly></textarea>
                             </div>
                         </div>
                     </fieldset>

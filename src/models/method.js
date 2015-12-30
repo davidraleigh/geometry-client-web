@@ -8,7 +8,8 @@ import has from 'amp-has'
 
 export default Model.extend({
     props: {
-        returnType: "string"
+        returnType: "string",
+        results: ""
     },
 
     collections: {
@@ -31,7 +32,6 @@ export default Model.extend({
 
     // TODO this cleanup logic should maybe enforced on the input instead of at the model?
     parseToWKTArray(wktGeometries) {
-        debugger;
         var re = /(MULTIPOLYGON|MULTILINESTRING|MULTIPOINT|LINESTRING|POLYGON|POINT)/ig
         var results;
         let startIndex = 0;
@@ -60,9 +60,7 @@ export default Model.extend({
     },
 
     parseToGeoJSONArray(wktGeometries) {
-        debugger;
         return this.parseToWKTArray(wktGeometries).map(function(value) {
-            debugger;
             return wktParser(value);
         });
     },
