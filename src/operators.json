@@ -175,7 +175,7 @@
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
                         "parameterName" : "inputGeom1",
-                        "parameterValue" : "POLYGON((-116 40, -120 39, -121 10, -111 12, -108 25))"
+                        "parameterValue" : "POLYGON((-116 40, -120 39, -121 10, -111 12, -108 25.0000001))"
                     },
                     {
                         "parameterPosition" : 1,
@@ -188,7 +188,8 @@
                         "parameterPosition" : 2,
                         "parameterKey" : "wkid_sr",
                         "parameterType" : "SpatialReference",
-                        "parameterName" : "sr"
+                        "parameterName" : "sr",
+                        "parameterValue" : 4326
                     },
                     {
                         "parameterPosition" : 3,
@@ -587,13 +588,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
-                        "parameterName" : "input_geometries"
+                        "parameterName" : "input_geometries",
+                        "parameterValue" : "POLYGON((-116 20, -131 10, -121 30, -116 20))"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
                         "parameterType" : "GeometryCursor",
-                        "parameterName" : "intersector"
+                        "parameterName" : "intersector",
+                        "parameterValue" : "LINESTRING(-117 20, -117 10, -130 10, -130 20, -117 20)"
                     },
                     {
                         "parameterPosition" : 2,
@@ -609,7 +612,9 @@
                     {
                         "parameterPosition" : 4,
                         "parameterType" : "Int32",
-                        "parameterName" : "dimensionMask"
+                        "parameterName" : "dimensionMask",
+                        "parameterKey" : "input_integers",
+                        "parameterValue" : 2
                     }
                 ]
             },
@@ -621,7 +626,7 @@
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
                         "parameterName" : "inputGeometry",
-                        "parameterValue" : "LINESTRING(-117 20, -117 10, -130 10, -130 20, -117 20)"
+                        "parameterValue" : "POLYGON((-117 20, -117 10, -130 10, -130 20, -117 20))"
                     },
                     {
                         "parameterPosition" : 1,
@@ -1143,13 +1148,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
-                        "parameterName" : "geoms"
+                        "parameterName" : "geoms",
+                        "parameterValue" : "MULTIPOLYGON (((40 40, 20 45, 45 30, 40 40)), ((20 35, 45 20, 30 5, 10 10, 10 30, 20 35), (30 20, 20 25, 20 15, 30 20)))\nPOLYGON ((130 10, 140 40,  130 35, 120 40, 110 20, 130 10))\nMULTIPOLYGON (((90 20, 105 40, 70 40, 90 20)),((75 5, 100 10, 100 20, 65 10, 75 5)))"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterType" : "Boolean",
                         "parameterKey" : "input_booleans",
-                        "parameterName" : "b_merge"
+                        "parameterName" : "b_merge",
+                        "parameterValue" : true
                     },
                     {
                         "parameterPosition" : 2,
@@ -1166,7 +1173,7 @@
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
                         "parameterName" : "geom",
-                        "parameterValue" : "POLYGON((1 1,5 1,5 5,1 5,1 1),(2 2, 3 2, 3 3, 2 3,2 2))"
+                        "parameterValue" : "MULTIPOLYGON (((15 5, 23.333333333333336 6.6666666666666661, 30 5, 33.75 8.7500000000000018, 40 10, 36.25 11.25, 45 20, 35.277777777777779 25.833333333333332, 36 28, 39.827586206896555 33.103448275862071, 45 30, 42 36, 45 40, 40 40, 20 45, 28.333333333333339 40, 20 40, 10 40, 16.666666666666664 33.333333333333329, 10 30, 10 20, 5 10, 15 5)))"
                     },
                     {
                         "parameterPosition" : 1,
