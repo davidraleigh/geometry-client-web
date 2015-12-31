@@ -52,7 +52,7 @@ export default React.createClass({
     onSubmit(event) {
         event.preventDefault();
         this.setState({results: "updated"});
-        let websocket = new WebSocket('ws://localhost:8080');//'ws://echo.websocket.org');
+        let websocket = new WebSocket('ws://geometry-sockets.azurewebsites.net:80');//'ws://echo.websocket.org');
         websocket.onopen = (evt) => {
             this.setState({results: "Sending Query"});
             websocket.send(this.state.query);
