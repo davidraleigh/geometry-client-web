@@ -479,7 +479,7 @@
                         "parameterType" : "Boolean",
                         "parameterKey" : "input_booleans",
                         "parameterName" : "bUnion",
-                        "parameterValue" : true
+                        "parameterValue" : false
                     },
                     {
                         "parameterPosition" : 4,
@@ -1160,7 +1160,7 @@
                         "parameterType" : "Boolean",
                         "parameterKey" : "input_booleans",
                         "parameterName" : "b_merge",
-                        "parameterValue" : true
+                        "parameterValue" : false
                     },
                     {
                         "parameterPosition" : 2,
