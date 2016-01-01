@@ -62,8 +62,12 @@ export default React.createClass({
             this.setState({results: evt.data});
             app.selectedOperator.method.results = JSON.parse(evt.data);
             if (has(app.selectedOperator.method.results, "geometry_results")) {
-                console.log(wktParser(app.selectedOperator.method.results["geometry_results"]));
-                this.setState({result_geojson_geometries: wktParser(app.selectedOperator.method.results["geometry_results"])});
+                console.log(evt.data);
+                debugger;
+                let geojsonResults = app.selectedOperator.method.results["geometry_results"].map(function(value) {
+                    return wktParser(value.geometry);
+                });
+                this.setState({result_geojson_geometries: geojsonResults});
                 console.log("geometry_results exists");
             }
 
