@@ -34,12 +34,15 @@ export default React.createClass({
         return (
             <NavHelper className='container'>
                 <div id="layout">
-                    <OperatorMenu operators={app.operators} onSelect={this.onSelect}/>
+                    <a href="#menu"  id="menuLink" className="menu-link" >
+                        <span></span>
+                    </a>
+                    <OperatorMenu id="menu" operators={app.operators} onSelect={this.onSelect}/>
                     <header role='banner'>
                         <h1>Geometry Micro-Service Demo</h1>
                     </header>
                     <p>
-                        Demonstration of the C# computational geometry library that is continuously integrated port of ESRI's geometry-api-java library
+                        Demonstration of the C# computational geometry library that is a continuously integrated port of ESRI's geometry-api-java library
                     </p>
                     <div>
                         <MethodForm selectedOperator={this.state.selectedOperator} query={this.state.query}/>
