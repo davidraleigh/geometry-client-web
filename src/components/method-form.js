@@ -65,7 +65,7 @@ export default React.createClass({
                 console.log(evt.data);
                 debugger;
                 let geojsonResults = app.selectedOperator.method.results["geometry_results"].map(function(value) {
-                    return wktParser(value.geometry);
+                    return wktParser(value);
                 });
                 this.setState({result_geojson_geometries: geojsonResults});
                 console.log("geometry_results exists");
