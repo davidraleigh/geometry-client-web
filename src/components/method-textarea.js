@@ -23,7 +23,7 @@ export default React.createClass({
         const value = this.state.value;
         return (
             <div>
-                <div style={{"margin-bottom":"3px", "margin-top":"2px"}}>
+                <div style={{"marginBottom":"3px", "marginTop":"2px"}}>
                     <label>{parameter.parameterType}: {parameter.parameterName}</label>
                 </div>
                 <textarea className="pure-input-1" value={value} onChange={this.onChange} />

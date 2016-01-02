@@ -37,6 +37,8 @@ export default React.createClass({
         this.setState({query: selectedOperator.query()});
         this.setState({left_geojson_geometries: selectedOperator.method.left_geojson_geometries()});
         this.setState({right_geojson_geometries: selectedOperator.method.right_geojson_geometries()});
+        //this.setState({result_geojson_geometries: {}});
+        //this.setState({results: ""});
     },
 
     onTextAreaChange(value, index) {
@@ -52,7 +54,7 @@ export default React.createClass({
     onSubmit(event) {
         event.preventDefault();
         this.setState({results: "updated"});
-        let websocket = new WebSocket('ws://geometry-sockets.azurewebsites.net:80');//'ws://echo.websocket.org');
+        let websocket = new WebSocket('ws://geometry.fogmodel.io:80');//'ws://echo.websocket.org');
         websocket.onopen = (evt) => {
             this.setState({results: "Sending Query"});
             websocket.send(this.state.query);
@@ -63,7 +65,7 @@ export default React.createClass({
             app.selectedOperator.method.results = JSON.parse(evt.data);
             if (has(app.selectedOperator.method.results, "geometry_results")) {
                 console.log(evt.data);
-                debugger;
+
                 let geojsonResults = app.selectedOperator.method.results["geometry_results"].map(function(value) {
                     return wktParser(value);
                 });
@@ -88,6 +90,8 @@ export default React.createClass({
         this.setState({query: selectedOperator.query()});
         this.setState({left_geojson_geometries: selectedOperator.method.left_geojson_geometries()});
         this.setState({right_geojson_geometries: selectedOperator.method.right_geojson_geometries()});
+        //this.setState({result_geojson_geometries: {}});
+        //this.setState({results: ""});
     },
 
     render() {
@@ -111,8 +115,8 @@ export default React.createClass({
                             <button className="pure-button pure-input-1-3 pure-button-primary" onClick={this.onSubmit}>Submit Query</button>
                             <div className="pure-group">
                                 <div className="pure-u-1-2">
-                                    <div style={{"margin-right":"5px"}}>
-                                        <div style={{"margin-bottom":"3px"}}>
+                                    <div style={{"marginRight":"5px"}}>
+                                        <div style={{"marginBottom":"3px"}}>
                                             <label>JSON Request:</label>
                                         </div>
                                         <textarea className="pure-input-1" type="text" rows="8" value={this.state.query} readOnly></textarea>
@@ -120,8 +124,8 @@ export default React.createClass({
                                 </div>
 
                                 <div className="pure-u-1-2">
-                                    <div style={{"margin-left":"5px"}}>
-                                        <div style={{"margin-bottom":"3px"}}>
+                                    <div style={{"marginLeft":"5px"}}>
+                                        <div style={{"marginBottom":"3px"}}>
                                             <label>JSON Results:</label>
                                         </div>
                                         <textarea className="pure-input-1" type="text" rows="8" value={this.state.results} readOnly></textarea>
@@ -132,12 +136,12 @@ export default React.createClass({
                     </form>
                 </div>
                 <div className="pure-u-1-2">
-                    <span style={{"fontSize": "x-large", "margin-left": "20px"}}>Input</span>
-                    <div style={{"margin-left": "20px"}}>
+                    <span style={{"fontSize": "x-large", "marginLeft": "20px"}}>Input</span>
+                    <div style={{"marginLeft": "20px"}}>
                         <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries}/>
                     </div>
-                    <span style={{"fontSize": "x-large", "margin-left": "20px"}}>Output</span>
-                    <div style={{"margin-left": "20px"}}>
+                    <span style={{"fontSize": "x-large", "marginLeft": "20px"}}>Output</span>
+                    <div style={{"marginLeft": "20px"}}>
                         <LeafletView result_geojson_geometries={this.state.result_geojson_geometries}/>
                     </div>
                 </div>

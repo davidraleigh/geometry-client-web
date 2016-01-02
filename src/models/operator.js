@@ -39,7 +39,6 @@ export default Model.extend({
                 if (param.parameterValue === null || param.parameterValue.length === 0) {
                     continue;
                 }
-                debugger;
                 if (param["parameterKey"] != "left_wkt_geometries" &&
                     param["parameterKey"] != "right_wkt_geometries" &&
                     param["parameterKey"] != "input_doubles" &&
