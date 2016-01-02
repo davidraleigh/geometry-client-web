@@ -37,8 +37,8 @@ export default React.createClass({
         this.setState({query: selectedOperator.query()});
         this.setState({left_geojson_geometries: selectedOperator.method.left_geojson_geometries()});
         this.setState({right_geojson_geometries: selectedOperator.method.right_geojson_geometries()});
-        //this.setState({result_geojson_geometries: {}});
-        //this.setState({results: ""});
+        this.setState({result_geojson_geometries: null});
+        this.setState({results: ""});
     },
 
     onTextAreaChange(value, index) {
@@ -49,6 +49,8 @@ export default React.createClass({
         this.setState({query: selectedOperator.query()});
         this.setState({left_geojson_geometries: selectedOperator.method.left_geojson_geometries()});
         this.setState({right_geojson_geometries: selectedOperator.method.right_geojson_geometries()});
+        this.setState({result_geojson_geometries: null});
+        this.setState({results: ""});
     },
 
     onSubmit(event) {
@@ -89,8 +91,8 @@ export default React.createClass({
         this.setState({query: selectedOperator.query()});
         this.setState({left_geojson_geometries: selectedOperator.method.left_geojson_geometries()});
         this.setState({right_geojson_geometries: selectedOperator.method.right_geojson_geometries()});
-        //this.setState({result_geojson_geometries: {}});
-        //this.setState({results: ""});
+        this.setState({result_geojson_geometries: null});
+        this.setState({results: ""});
     },
 
     render() {
