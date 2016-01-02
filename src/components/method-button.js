@@ -19,7 +19,7 @@ export default React.createClass({
         const buttonState = active ? "pure-button pure-input-1-3 pure-button-active" : "pure-button pure-input-1-3";
 
         return (
-            <button className={buttonState} onClick={this.onClick}>Return {returnType}</button>
+            <button className={buttonState} onClick={this.onClick}>{returnType}</button>
         )
     }
 });

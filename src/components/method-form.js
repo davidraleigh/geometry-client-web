@@ -93,40 +93,54 @@ export default React.createClass({
     render() {
         const {selectedOperator} = this.props;
         return (
-            <div>
-                 <div className="pure-g">
-                     <div className="pure-u-1-2">
-                         <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries}/>
-                     </div>
-                     <div className="pure-u-1-2">
-                         <LeafletView result_geojson_geometries={this.state.result_geojson_geometries}/>
-                     </div>
-                </div>
-                <form className="pure-form">
-                    <fieldset className="pure-group">
-                        <a style={{"fontSize": "x-large"}}>{selectedOperator.operatorType}</a>
-                        <div className="pure-input">
-                            {selectedOperator.executeMethods.map((method, index) => {
-                                return <MethodButton key={index} returnType={method.returnType} methodIndex={index} active={(selectedOperator.methodIndex === index)} onMethodSelect={this.onMethodSelect}/>
-                            })}
-                            {selectedOperator.method.parameters.map((parameter) => {
-                                return <MethodTextarea key={'' + parameter.parameterPosition + selectedOperator.operatorType + selectedOperator.methodIndex} parameter={parameter} onTextAreaChange={this.onTextAreaChange} />
-                            })}
-                        </div>
-                        <button className="pure-button pure-input-1-3 pure-button-primary" onClick={this.onSubmit}>Submit Query</button>
-                        <div className="pure-group">
-                            <div className="pure-u-1-2">
-                                <label>JSON Query:</label>
-                                <textarea className="pure-input-1" type="text" rows="8" value={this.state.query} readOnly></textarea>
+            <div className="pure-g">
+                <div className="pure-u-1-2">
+                    <form className="pure-form">
+                        <fieldset className="pure-group">
+                            <a style={{"fontSize": "x-large"}}>{selectedOperator.operatorType}</a>
+                            <div className="pure-input">
+                                {selectedOperator.executeMethods.map((method, index) => {
+                                    if (selectedOperator.executeMethods.length > 1)
+                                        return <MethodButton key={index} returnType={method.returnType} methodIndex={index} active={(selectedOperator.methodIndex === index)} onMethodSelect={this.onMethodSelect}/>
+                                })}
+                                {selectedOperator.method.parameters.map((parameter) => {
+                                    if (parameter.parameterType != "ProgressTracker")
+                                        return <MethodTextarea key={'' + parameter.parameterPosition + selectedOperator.operatorType + selectedOperator.methodIndex} parameter={parameter} onTextAreaChange={this.onTextAreaChange} />
+                                })}
                             </div>
+                            <button className="pure-button pure-input-1-3 pure-button-primary" onClick={this.onSubmit}>Submit Query</button>
+                            <div className="pure-group">
+                                <div className="pure-u-1-2">
+                                    <div style={{"margin-right":"5px"}}>
+                                        <div style={{"margin-bottom":"3px"}}>
+                                            <label>JSON Request:</label>
+                                        </div>
+                                        <textarea className="pure-input-1" type="text" rows="8" value={this.state.query} readOnly></textarea>
+                                    </div>
+                                </div>
 
-                            <div className="pure-u-1-2">
-                                <label>Results:</label>
-                                <textarea className="pure-input-1" type="text" rows="8" value={this.state.results} readOnly></textarea>
+                                <div className="pure-u-1-2">
+                                    <div style={{"margin-left":"5px"}}>
+                                        <div style={{"margin-bottom":"3px"}}>
+                                            <label>JSON Results:</label>
+                                        </div>
+                                        <textarea className="pure-input-1" type="text" rows="8" value={this.state.results} readOnly></textarea>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </fieldset>
-                </form>
+                        </fieldset>
+                    </form>
+                </div>
+                <div className="pure-u-1-2">
+                    <span style={{"fontSize": "x-large", "margin-left": "20px"}}>Input</span>
+                    <div style={{"margin-left": "20px"}}>
+                        <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries}/>
+                    </div>
+                    <span style={{"fontSize": "x-large", "margin-left": "20px"}}>Output</span>
+                    <div style={{"margin-left": "20px"}}>
+                        <LeafletView result_geojson_geometries={this.state.result_geojson_geometries}/>
+                    </div>
+                </div>
             </div>
         )
     }

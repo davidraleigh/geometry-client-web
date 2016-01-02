@@ -560,13 +560,15 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
-                        "parameterName" : "inputGeometries"
+                        "parameterName" : "inputGeometries",
+                        "parameterValue" : "LINESTRING(-117 20, -117 10, -130 10, -130 20, -117 20)\nLINESTRING(-116 21, -116 11, -131 11, -131 21, -116 21)"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
-                        "parameterType" : "GeometryCursor",
-                        "parameterName" : "intersector"
+                        "parameterType" : "Geometry",
+                        "parameterName" : "intersector",
+                        "parameterValue" : "POLYGON((-116 20, -131 10, -121 30, -116 20))"
                     },
                     {
                         "parameterPosition" : 2,
@@ -589,12 +591,12 @@
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
                         "parameterName" : "input_geometries",
-                        "parameterValue" : "POLYGON((-116 20, -131 10, -121 30, -116 20))"
+                        "parameterValue" : "POLYGON((-116 20, -131 10, -121 30, -116 20))\nPOLYGON((-120 15, -111 11, -125 3, -120 15))"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "right_wkt_geometries",
-                        "parameterType" : "GeometryCursor",
+                        "parameterType" : "Geometry",
                         "parameterName" : "intersector",
                         "parameterValue" : "LINESTRING(-117 20, -117 10, -130 10, -130 20, -117 20)"
                     },
@@ -870,7 +872,8 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
-                        "parameterName" : "geoms"
+                        "parameterName" : "geoms",
+                        "parameterValue": "MULTIPOLYGON (((10 10, 10 20, 40 20, 40 10, 60 10, 70 10)))\n MULTIPOLYGON (((10 10, 10 20, 40 20, 40 10, 60 10, 70 10)), ((100 10, 100 12, 100 13))) \nMULTIPOLYGON (((0 0, 0 15, 15 15, 15 0)), ((10 10, 10 20, 20 20, 20 10))) \nMULTIPOLYGON (((0 0, 0 15, 15 15, 15 0)), ((5 5, 5 6, 6 6, 6 5)))"
                     },
                     {
                         "parameterPosition" : 1,
@@ -882,7 +885,8 @@
                         "parameterPosition" : 2,
                         "parameterType" : "Boolean",
                         "parameterKey" : "input_booleans",
-                        "parameterName" : "bForceSimplify"
+                        "parameterName" : "bForceSimplify",
+                        "parameterValue" : true
                     },
                     {
                         "parameterPosition" : 3,
