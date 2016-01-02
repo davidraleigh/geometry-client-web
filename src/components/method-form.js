@@ -4,6 +4,7 @@
 import React from 'react'
 import ampMixin from 'ampersand-react-mixin'
 
+import responsivegrids from '../../node_modules/purecss/build/grids-responsive.css'
 import LeafletView from './leaflet-view'
 import MethodButton from './method-button'
 import MethodTextarea from './method-textarea'
@@ -94,8 +95,8 @@ export default React.createClass({
     render() {
         const {selectedOperator} = this.props;
         return (
-            <div className="pure-g">
-                <div className="pure-u-1-2">
+            <div className="pure-group">
+                <div className="pure-u-1 pure-u-lg-1-2">
                     <form className="pure-form">
                         <fieldset className="pure-group">
                             <a style={{"fontSize": "x-large"}}>{selectedOperator.operatorType} Operator</a>
@@ -114,7 +115,7 @@ export default React.createClass({
                             </div>
                             <button className="pure-button pure-input-1-3 pure-button-primary" onClick={this.onSubmit}>Submit Query</button>
                             <div className="pure-group">
-                                <div className="pure-u-1-2">
+                                <div className="pure-u-1 pure-u-md-1-2">
                                     <div style={{"marginRight":"5px"}}>
                                         <div style={{"marginBottom":"3px"}}>
                                             <label>JSON Request:</label>
@@ -123,7 +124,7 @@ export default React.createClass({
                                     </div>
                                 </div>
 
-                                <div className="pure-u-1-2">
+                                <div className="pure-u-1 pure-u-md-1-2">
                                     <div style={{"marginLeft":"5px"}}>
                                         <div style={{"marginBottom":"3px"}}>
                                             <label>JSON Results:</label>
@@ -135,7 +136,7 @@ export default React.createClass({
                         </fieldset>
                     </form>
                 </div>
-                <div className="pure-u-1-2">
+                <div className="pure-u-1 pure-u-lg-1-2">
                     <span style={{"fontSize": "x-large", "marginLeft": "20px"}}>Input</span>
                     <div style={{"marginLeft": "20px"}}>
                         <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries}/>
