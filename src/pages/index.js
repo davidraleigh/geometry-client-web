@@ -40,7 +40,7 @@ export default React.createClass({
         return (
             <NavHelper className='container'>
                 <div id="layout" className={this.state.menuToggled ? "active" : ""}>
-                    <a href="#menu"  id="menuLink" className={this.state.menuToggled ? "menu-link active" : "menu-link"} onClick={this.onClick}>
+                    <a id="menuLink" className={this.state.menuToggled ? "menu-link active" : "menu-link"} onClick={this.onClick}>
                         <span></span>
                     </a>
                     <OperatorMenu id="menu" menuToggled={this.state.menuToggled} operators={app.operators} onSelect={this.onSelect}/>

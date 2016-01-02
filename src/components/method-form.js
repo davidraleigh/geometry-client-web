@@ -4,7 +4,7 @@
 import React from 'react'
 import ampMixin from 'ampersand-react-mixin'
 
-import responsivegrids from '../../node_modules/purecss/build/grids-responsive.css'
+import responsivegrids from '../styles/grids-responsive.css'
 import LeafletView from './leaflet-view'
 import MethodButton from './method-button'
 import MethodTextarea from './method-textarea'
@@ -113,7 +113,7 @@ export default React.createClass({
                                         return <MethodTextarea key={'' + parameter.parameterPosition + selectedOperator.operatorType + selectedOperator.methodIndex} parameter={parameter} onTextAreaChange={this.onTextAreaChange} />
                                 })}
                             </div>
-                            <button className="pure-button pure-input-1-3 pure-button-primary" onClick={this.onSubmit}>Submit Query</button>
+                            <button className="pure-button pure-input-1-2 pure-button-primary" onClick={this.onSubmit}>Submit Query</button>
                             <div className="pure-group">
                                 <div className="pure-u-1 pure-u-md-1-2">
                                     <div style={{"marginRight":"5px"}}>

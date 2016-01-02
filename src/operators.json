@@ -3,7 +3,7 @@
         "operatorType" : "Union",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -61,7 +61,7 @@
         "operatorType" : "Difference",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -451,7 +451,7 @@
         "operatorType" : "Buffer",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -554,7 +554,7 @@
         "operatorType" : "Intersection",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -584,7 +584,7 @@
                 ]
             },
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -656,7 +656,7 @@
         "operatorType" : "Clip",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -721,7 +721,7 @@
         "operatorType" : "Cut",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -763,7 +763,7 @@
         "operatorType" : "DensifyByLength",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -816,7 +816,7 @@
         "operatorType" : "Simplify",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -879,7 +879,7 @@
         "operatorType" : "SimplifyOGC",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -942,7 +942,7 @@
         "operatorType" : "Offset",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -1050,7 +1050,7 @@
         "operatorType" : "Generalize",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -1117,7 +1117,7 @@
         "operatorType" : "SymmetricDifference",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -1182,7 +1182,7 @@
         "operatorType" : "ConvexHull",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
@@ -1228,7 +1228,7 @@
         "operatorType" : "Boundary",
         "executeMethods" : [
             {
-                "returnType" : "GeometryCursor",
+                "returnType" : "Geometries",
                 "parameters" : [
                     {
                         "parameterPosition" : 0,
