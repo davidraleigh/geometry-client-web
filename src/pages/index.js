@@ -18,7 +18,8 @@ export default React.createClass({
         return {
             operators: app.operators,
             selectedOperator: app.selectedOperator,
-            query: app.selectedOperator.query
+            query: app.selectedOperator.query,
+            menuToggled: false
         };
     },
 
@@ -30,14 +31,19 @@ export default React.createClass({
         app.selectedOperator = selectedOperator;
     },
 
+    onClick() {
+        console.log("menu hamburger clicked");
+        this.setState({menuToggled: !this.state.menuToggled});
+    },
+
     render() {
         return (
             <NavHelper className='container'>
-                <div id="layout">
-                    <a href="#menu"  id="menuLink" className="menu-link" >
+                <div id="layout" className={this.state.menuToggled ? "active" : ""}>
+                    <a href="#menu"  id="menuLink" className={this.state.menuToggled ? "menu-link active" : "menu-link"} onClick={this.onClick}>
                         <span></span>
                     </a>
-                    <OperatorMenu id="menu" operators={app.operators} onSelect={this.onSelect}/>
+                    <OperatorMenu id="menu" menuToggled={this.state.menuToggled} operators={app.operators} onSelect={this.onSelect}/>
                     <header role='banner'>
                         <h1>Geometry Micro-Service Demo</h1>
                     </header>

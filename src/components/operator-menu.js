@@ -10,9 +10,9 @@ export default React.createClass({
     mixins: [ampMixin],
 
     render() {
-        const {operators, onSelect} = this.props;
+        const {operators, onSelect, menuToggled} = this.props;
         return (
-            <div id="menu">
+            <div id="menu" className={menuToggled ? "active" : ""}>
                 <a className="pure-menu-heading" href="#">Operators</a>
                 <ul className="pure-menu-list">
                     {
