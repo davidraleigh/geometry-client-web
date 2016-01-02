@@ -53,7 +53,7 @@ export default React.createClass({
 
     onSubmit(event) {
         event.preventDefault();
-        this.setState({results: "updated"});
+        this.setState({results: "submitting request"});
         let websocket = new WebSocket('ws://geometry.fogmodel.io:80');//'ws://echo.websocket.org');
         websocket.onopen = (evt) => {
             this.setState({results: "Sending Query"});
@@ -64,13 +64,12 @@ export default React.createClass({
             this.setState({results: evt.data});
             app.selectedOperator.method.results = JSON.parse(evt.data);
             if (has(app.selectedOperator.method.results, "geometry_results")) {
-                console.log(evt.data);
 
                 let geojsonResults = app.selectedOperator.method.results["geometry_results"].map(function(value) {
                     return wktParser(value);
                 });
                 this.setState({result_geojson_geometries: geojsonResults});
-                console.log("geometry_results exists");
+                //console.log("geometry_results exists");
             }
 
             websocket.close();
