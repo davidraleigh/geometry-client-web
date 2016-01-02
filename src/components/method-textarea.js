@@ -21,12 +21,19 @@ export default React.createClass({
     render() {
         const {parameter} = this.props;
         const value = this.state.value;
+        let rowSize = 2;
+        if (parameter.parameterType === "Geometry" ||
+            parameter.parameterType === "GeometryCursor" ||
+            parameter.parameterType === "Polyline" ||
+            parameter.parameterType === "Envelope2D") {
+            rowSize = 5;
+        }
         return (
             <div>
                 <div style={{"marginBottom":"3px", "marginTop":"2px"}}>
                     <label>{parameter.parameterType}: {parameter.parameterName}</label>
                 </div>
-                <textarea className="pure-input-1" value={value} onChange={this.onChange} />
+                <textarea className="pure-input-1" rows={rowSize} value={value} onChange={this.onChange} />
             </div>
         )
     }

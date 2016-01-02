@@ -5,7 +5,6 @@ import React from 'react'
 import ampMixin from 'ampersand-react-mixin'
 
 import LeafletView from './leaflet-view'
-//import LocationMap from './location-map'
 import MethodButton from './method-button'
 import MethodTextarea from './method-textarea'
 import wktParser from 'wellknown'
@@ -66,19 +65,16 @@ export default React.createClass({
             this.setState({results: evt.data});
             app.selectedOperator.method.results = JSON.parse(evt.data);
             if (has(app.selectedOperator.method.results, "geometry_results")) {
-
                 let geojsonResults = app.selectedOperator.method.results["geometry_results"].map(function(value) {
                     return wktParser(value);
                 });
                 this.setState({result_geojson_geometries: geojsonResults});
-                //console.log("geometry_results exists");
             }
 
             websocket.close();
         };
         websocket.onclose = (evt) => {
             console.log("disconnected");
-            //this.setState({results:"DISCONNECTED"});
         };
         websocket.onerror = (evt) => {
             this.setState({results: "Failed to submit. Error: " + evt.data});
@@ -102,7 +98,10 @@ export default React.createClass({
                 <div className="pure-u-1-2">
                     <form className="pure-form">
                         <fieldset className="pure-group">
-                            <a style={{"fontSize": "x-large"}}>{selectedOperator.operatorType}</a>
+                            <a style={{"fontSize": "x-large"}}>{selectedOperator.operatorType} Operator</a>
+                            <div style={{"marginTop":"10px"}}>
+                                <label>Output Types: </label>
+                            </div>
                             <div className="pure-input">
                                 {selectedOperator.executeMethods.map((method, index) => {
                                     if (selectedOperator.executeMethods.length > 1)
@@ -120,7 +119,7 @@ export default React.createClass({
                                         <div style={{"marginBottom":"3px"}}>
                                             <label>JSON Request:</label>
                                         </div>
-                                        <textarea className="pure-input-1" type="text" rows="8" value={this.state.query} readOnly></textarea>
+                                        <textarea className="pure-input-1" type="text" rows="15" value={this.state.query} readOnly></textarea>
                                     </div>
                                 </div>
 
@@ -129,7 +128,7 @@ export default React.createClass({
                                         <div style={{"marginBottom":"3px"}}>
                                             <label>JSON Results:</label>
                                         </div>
-                                        <textarea className="pure-input-1" type="text" rows="8" value={this.state.results} readOnly></textarea>
+                                        <textarea className="pure-input-1" type="text" rows="15" value={this.state.results} readOnly></textarea>
                                     </div>
                                 </div>
                             </div>
