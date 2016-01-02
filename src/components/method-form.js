@@ -4,7 +4,6 @@
 import React from 'react'
 import ampMixin from 'ampersand-react-mixin'
 
-import responsivegrids from '../styles/grids-responsive.css'
 import LeafletView from './leaflet-view'
 import MethodButton from './method-button'
 import MethodTextarea from './method-textarea'
