@@ -42,7 +42,8 @@ export default React.createClass({
                         <h1>Geometry Micro-Service Demo</h1>
                     </header>
                     <p>
-                        Demonstration of the C# computational geometry library that is a continuously integrated port of ESRI's <a target="_blank" style={{"text-decoration": "none"}} href="https://github.com/Esri/geometry-api-java">geometry-api-java</a> library.
+                        This page uses a C# geometry library that is a continuously integrated port of ESRI's <a target="_blank" href="https://github.com/Esri/geometry-api-java">geometry-api-java</a> library.
+                        Documentation about how the operators work can be found on ESRI's <a target="_blank" href="https://github.com/Esri/geometry-api-java/wiki">geometry wiki page</a>. Find a description of this project at <a target="_blank" href="http://davidraleigh.io">http://davidraleigh.io</a>
                     </p>
                     <div>
                         <MethodForm selectedOperator={this.state.selectedOperator} query={this.state.query}/>
