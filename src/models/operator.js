@@ -36,6 +36,10 @@ export default Model.extend({
             const param = this.method.parameters.at(i);
             const properties = param.getAttributes({props: true});
             if (has(properties,"parameterKey") && has(properties, "parameterValue")) {
+                if (param.parameterValue === null || param.parameterValue.length === 0) {
+                    continue;
+                }
+                debugger;
                 if (param["parameterKey"] != "left_wkt_geometries" &&
                     param["parameterKey"] != "right_wkt_geometries" &&
                     param["parameterKey"] != "input_doubles" &&
@@ -45,6 +49,8 @@ export default Model.extend({
                 } else if (param["parameterKey"] === "left_wkt_geometries" ||
                            param["parameterKey"] === "right_wkt_geometries") {
                     obj[param["parameterKey"]] = this.method.parseToWKTArray(param.parameterValue);
+                } else if (has(obj, param["parameterKey"])){
+                    obj[param["parameterKey"]].push(param.parameterValue);
                 } else {
                     obj[param["parameterKey"]] = [param.parameterValue];
                 }

@@ -36,7 +36,7 @@ export default Model.extend({
         var results;
         let startIndex = 0;
         let endIndex = 0;
-        let geometries = []
+        let geometries = [];
         while ((results = re.exec(wktGeometries)) !== null) {
             endIndex = results.index;
             if (endIndex != 0) {

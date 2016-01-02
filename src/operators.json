@@ -976,36 +976,43 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "Geometry",
-                        "parameterName" : "inputGeometry"
+                        "parameterName" : "inputGeometry",
+                        "parameterValue" : "LINESTRING(0 0,6 0,6 1,4 1,4 2,10 2)"
                     },
                     {
                         "parameterPosition" : 1,
                         "parameterKey" : "wkid_sr",
                         "parameterType" : "SpatialReference",
-                        "parameterName" : "sr"
+                        "parameterName" : "sr",
+                        "parameterValue" : 4326
                     },
                     {
                         "parameterPosition" : 2,
                         "parameterKey" : "input_doubles",
                         "parameterType" : "Double",
-                        "parameterName" : "distance"
+                        "parameterName" : "distance",
+                        "parameterValue" : 3.5
                     },
                     {
                         "parameterPosition" : 3,
                         "parameterType" : "JoinType",
-                        "parameterName" : "joins"
+                        "parameterName" : "joins",
+                        "parameterKey" : "offset_join",
+                        "parameterValue" : "Round"
                     },
                     {
                         "parameterPosition" : 4,
                         "parameterKey" : "input_doubles",
                         "parameterType" : "Double",
-                        "parameterName" : "bevelRatio"
+                        "parameterName" : "bevelRatio",
+                        "parameterValue" : 2
                     },
                     {
                         "parameterPosition" : 5,
                         "parameterKey" : "input_doubles",
                         "parameterType" : "Double",
-                        "parameterName" : "flattenError"
+                        "parameterName" : "flattenError",
+                        "parameterValue" : 0.01
                     },
                     {
                         "parameterPosition" : 6,
