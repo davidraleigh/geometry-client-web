@@ -662,7 +662,8 @@
                         "parameterPosition" : 0,
                         "parameterKey" : "left_wkt_geometries",
                         "parameterType" : "GeometryCursor",
-                        "parameterName" : "geoms"
+                        "parameterName" : "geoms",
+                        "parameterValue" : "MULTIPOLYGON (((40 40, 20 45, 45 30, 40 40)), ((20 35, 45 20, 30 5, 10 10, 10 30, 20 35), (30 20, 20 25, 20 15, 30 20)))\nPOLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
                     },
                     {
                         "parameterPosition" : 1,
