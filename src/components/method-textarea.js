@@ -21,19 +21,24 @@ export default React.createClass({
     render() {
         const {parameter} = this.props;
         const value = this.state.value;
+        let titleText = null;
         let rowSize = 2;
         if (parameter.parameterType === "Geometry" ||
             parameter.parameterType === "GeometryCursor" ||
             parameter.parameterType === "Polyline" ||
             parameter.parameterType === "Envelope2D") {
             rowSize = 5;
+            titleText = "Well-known text geometry inputs"
+        } else if (parameter.parameterType === "SpatialReference") {
+            titleText = "Well-known id number"
         }
+
         return (
             <div>
                 <div style={{"marginBottom":"3px", "marginTop":"2px"}}>
                     <label>{parameter.parameterType}: {parameter.parameterName}</label>
                 </div>
-                <textarea className="pure-input-1" rows={rowSize} value={value} onChange={this.onChange} />
+                <textarea title={titleText} className="pure-input-1" rows={rowSize} value={value} onChange={this.onChange} />
             </div>
         )
     }
