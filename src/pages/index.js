@@ -41,7 +41,7 @@ export default React.createClass({
             <NavHelper className='container'>
                 <div id="layout" className={this.state.menuToggled ? "active" : ""}>
                     <a id="menuLink" className={this.state.menuToggled ? "menu-link active" : "menu-link"} onClick={this.onClick}>
-                        <span></span>
+                        <span style={{"font-size":"13pt"}}>MENU</span>
                     </a>
                     <OperatorMenu id="menu" menuToggled={this.state.menuToggled} operators={app.operators} onSelect={this.onSelect}/>
                     <header role='banner'>
