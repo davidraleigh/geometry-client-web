@@ -25,8 +25,8 @@ export default React.createClass({
             right_geojson_geometries: selectedOperator.method.right_geojson_geometries(),
             result_geojson_geometries: {},
             results: "",
-            showJSONTextarea: true,
-            showJSONButtonText: "Hide JSON"
+            showJSONTextarea: false,
+            jsonButtonText: "Show JSON"
         };
     },
 
@@ -72,6 +72,14 @@ export default React.createClass({
                     return wktParser(value);
                 });
                 this.setState({result_geojson_geometries: geojsonResults});
+            } else {
+                debugger;
+                // toggle the JSON visibility so the user can see results
+                if (this.state.showJSONTextarea === false) {
+                    this.setState({jsonButtonText: "Hide JSON"});
+                    this.setState({showJSONTextarea: !this.state.showJSONTextarea});
+                }
+
             }
 
             websocket.close();
@@ -87,10 +95,10 @@ export default React.createClass({
     onToggleJSON(event) {
         event.preventDefault();
         this.setState({showJSONTextarea: !this.state.showJSONTextarea});
-        if (this.state.showJSONButtonText === "Hide JSON")
-            this.setState({showJSONButtonText: "Show JSON"});
+        if (this.state.jsonButtonText === "Hide JSON")
+            this.setState({jsonButtonText: "Show JSON"});
         else
-            this.setState({showJSONButtonText: "Hide JSON"});
+            this.setState({jsonButtonText: "Hide JSON"});
         debugger;
     },
 
@@ -126,7 +134,7 @@ export default React.createClass({
                                 })}
                             </div>
                             <button className="pure-button pure-input-1-2 pure-button-primary" onClick={this.onSubmit}>Submit Query</button>
-                            <button className="pure-button pure-input-1-2" onClick={this.onToggleJSON}>{this.state.showJSONButtonText}</button>
+                            <button className="pure-button pure-input-1-2" onClick={this.onToggleJSON}>{this.state.jsonButtonText}</button>
                             <div className="pure-group">
                                 <JSONTextarea query={this.state.query} results={this.state.results} showJSONTextarea={this.state.showJSONTextarea}></JSONTextarea>
                             </div>
