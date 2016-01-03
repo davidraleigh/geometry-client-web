@@ -73,7 +73,6 @@ export default React.createClass({
                 });
                 this.setState({result_geojson_geometries: geojsonResults});
             } else {
-                debugger;
                 // toggle the JSON visibility so the user can see results
                 if (this.state.showJSONTextarea === false) {
                     this.setState({jsonButtonText: "Hide JSON"});
@@ -99,7 +98,6 @@ export default React.createClass({
             this.setState({jsonButtonText: "Show JSON"});
         else
             this.setState({jsonButtonText: "Hide JSON"});
-        debugger;
     },
 
     componentWillReceiveProps(nextProps) {

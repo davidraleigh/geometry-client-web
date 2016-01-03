@@ -44,7 +44,10 @@ export default Model.extend({
                 while (wktGeometries[endIndex - 1] != ')' && endIndex > startIndex) {
                     endIndex -= 1;
                 }
-                geometries.push(wktGeometries.slice(startIndex, endIndex).trim());
+                if (endIndex > startIndex) {
+                    geometries.push(wktGeometries.slice(startIndex, endIndex).trim());
+                }
+
             }
 
             startIndex = results.index;
@@ -55,7 +58,11 @@ export default Model.extend({
         while (wktGeometries[endIndex - 1] != ')' && endIndex > startIndex) {
             endIndex -= 1;
         }
-        geometries.push(wktGeometries.slice(startIndex, endIndex).trim());
+
+        if (endIndex > startIndex) {
+            geometries.push(wktGeometries.slice(startIndex, endIndex).trim());
+        }
+
         return geometries;
     },
 
