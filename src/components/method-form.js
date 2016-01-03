@@ -116,7 +116,7 @@ export default React.createClass({
         const {selectedOperator} = this.props;
         return (
             <div className="pure-group">
-                <div className="pure-u-1 pure-u-lg-1-2">
+                <div className="pure-u-1 pure-u-lg-1-3">
                     <form className="pure-form">
                         <fieldset className="pure-group">
                             <a style={{"fontSize": "x-large"}}>{selectedOperator.operatorType} Operator</a>
@@ -141,7 +141,7 @@ export default React.createClass({
                         </fieldset>
                     </form>
                 </div>
-                <div className="pure-u-1 pure-u-lg-1-2">
+                <div className="pure-u-1 pure-u-lg-2-3">
                     <span style={{"fontSize": "x-large", "marginLeft": "20px"}}>Input</span>
                     <div style={{"marginLeft": "20px"}}>
                         <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries}/>
