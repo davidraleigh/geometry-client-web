@@ -19,7 +19,7 @@ export default React.createClass({
     },
 
     render() {
-        return <div className='map' ref='mapClass' style={{height: '280px'}}></div>
+        return <div className='map' ref='mapClass' style={{height: '320px'}}></div>
     },
 
     mergeBounds(left_layer, right_layer) {

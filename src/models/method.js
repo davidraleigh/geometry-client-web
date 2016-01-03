@@ -9,7 +9,7 @@ import has from 'amp-has'
 export default Model.extend({
     props: {
         returnType: "string",
-        results: ""
+        results: "any"
     },
 
     collections: {

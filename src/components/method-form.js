@@ -7,6 +7,7 @@ import ampMixin from 'ampersand-react-mixin'
 import LeafletView from './leaflet-view'
 import MethodButton from './method-button'
 import MethodTextarea from './method-textarea'
+import JSONTextarea from './json-textarea'
 import wktParser from 'wellknown'
 import has from 'amp-has'
 
@@ -23,7 +24,9 @@ export default React.createClass({
             left_geojson_geometries: selectedOperator.method.left_geojson_geometries(),
             right_geojson_geometries: selectedOperator.method.right_geojson_geometries(),
             result_geojson_geometries: {},
-            results: ""
+            results: "",
+            showJSONTextarea: true,
+            showJSONButtonText: "Hide JSON"
         };
     },
 
@@ -81,6 +84,16 @@ export default React.createClass({
         };
     },
 
+    onToggleJSON(event) {
+        event.preventDefault();
+        this.setState({showJSONTextarea: !this.state.showJSONTextarea});
+        if (this.state.showJSONButtonText === "Hide JSON")
+            this.setState({showJSONButtonText: "Show JSON"});
+        else
+            this.setState({showJSONButtonText: "Hide JSON"});
+        debugger;
+    },
+
     componentWillReceiveProps(nextProps) {
         const {selectedOperator} = nextProps;
         this.setState({selectedOperator: selectedOperator});
@@ -113,24 +126,9 @@ export default React.createClass({
                                 })}
                             </div>
                             <button className="pure-button pure-input-1-2 pure-button-primary" onClick={this.onSubmit}>Submit Query</button>
+                            <button className="pure-button pure-input-1-2" onClick={this.onToggleJSON}>{this.state.showJSONButtonText}</button>
                             <div className="pure-group">
-                                <div className="pure-u-1 pure-u-md-1-2">
-                                    <div style={{"marginRight":"5px"}}>
-                                        <div style={{"marginBottom":"3px"}}>
-                                            <label>JSON Request:</label>
-                                        </div>
-                                        <textarea className="pure-input-1" type="text" rows="15" value={this.state.query} readOnly></textarea>
-                                    </div>
-                                </div>
-
-                                <div className="pure-u-1 pure-u-md-1-2">
-                                    <div style={{"marginLeft":"5px"}}>
-                                        <div style={{"marginBottom":"3px"}}>
-                                            <label>JSON Results:</label>
-                                        </div>
-                                        <textarea className="pure-input-1" type="text" rows="15" value={this.state.results} readOnly></textarea>
-                                    </div>
-                                </div>
+                                <JSONTextarea query={this.state.query} results={this.state.results} showJSONTextarea={this.state.showJSONTextarea}></JSONTextarea>
                             </div>
                         </fieldset>
                     </form>
