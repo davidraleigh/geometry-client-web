@@ -114,6 +114,19 @@ export default React.createClass({
 
     render() {
         const {selectedOperator} = this.props;
+        let outputView = null;
+        if (selectedOperator.executeMethods.at(0).returnType ==="Geometries" ||
+            selectedOperator.executeMethods.at(0).returnType ==="Geometry") {
+            outputView = (
+                <div>
+                    <span style={{"fontSize": "x-large", "marginLeft": "20px"}}>Results:</span>
+                    <div style={{"marginLeft": "20px"}}>
+                        <LeafletView result_geojson_geometries={this.state.result_geojson_geometries}/>
+                    </div>
+                </div>
+            )
+        }
+
         return (
             <div className="pure-group">
                 <div className="pure-u-1 pure-u-lg-1-3">
@@ -142,13 +155,10 @@ export default React.createClass({
                     </form>
                 </div>
                 <div className="pure-u-1 pure-u-lg-2-3">
-                    <span style={{"fontSize": "x-large", "marginLeft": "20px"}}>Input</span>
+                    {outputView}
+                    <span style={{"fontSize": "x-large", "marginLeft": "20px"}}>Inputs:</span>
                     <div style={{"marginLeft": "20px"}}>
                         <LeafletView left_geojson_geometries={this.state.left_geojson_geometries} right_geojson_geometries={this.state.right_geojson_geometries}/>
-                    </div>
-                    <span style={{"fontSize": "x-large", "marginLeft": "20px"}}>Output</span>
-                    <div style={{"marginLeft": "20px"}}>
-                        <LeafletView result_geojson_geometries={this.state.result_geojson_geometries}/>
                     </div>
                 </div>
             </div>
