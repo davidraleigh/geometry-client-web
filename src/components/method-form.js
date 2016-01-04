@@ -125,15 +125,22 @@ export default React.createClass({
             )
         }
 
+        let outputTypeText = null;
+        if (selectedOperator.executeMethods.length > 1) {
+            outputTypeText = (
+                <div style={{"marginTop":"10px"}}>
+                    <label>Output Types: </label>
+                </div>
+            )
+        }
+
         return (
             <div className="pure-group">
                 <div className="pure-u-1 pure-u-lg-1-3">
                     <form className="pure-form">
                         <fieldset className="pure-group">
                             <a style={{"fontSize": "x-large"}}>{selectedOperator.operatorType} Operator</a>
-                            <div style={{"marginTop":"10px"}}>
-                                <label>Output Types: </label>
-                            </div>
+                            {outputTypeText}
                             <div className="pure-input">
                                 {selectedOperator.executeMethods.map((method, index) => {
                                     if (selectedOperator.executeMethods.length > 1)

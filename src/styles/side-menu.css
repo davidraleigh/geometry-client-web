@@ -181,16 +181,16 @@ small screens.
     display: block;
 }
 
-/*.menu-link span:before,*/
-/*.menu-link span:after {*/
-    /*position: absolute;*/
-    /*margin-top: -0.9em;*/
-    /*content: " ";*/
-/*}*/
+.menu-link span:before,
+.menu-link span:after {
+    position: absolute;
+    margin-top: -0.9em;
+    content: " ";
+}
 
-/*.menu-link span:after {*/
-    /*margin-top: 0.2em;*/
-/*}*/
+.menu-link span:after {
+    margin-top: 0.2em;
+}
 
 
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
