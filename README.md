@@ -1,6 +1,6 @@
 # geometry-client-web
 
-This project serves as a user interface for demonstrating the capabilities of the GIS computational library called "geometry-api-cs". The geometry-api-cs library is created through semi-automated port of the [geometry-api-java](http://github.com/esri/geometry-api-java.git) library. This means all updates to the geometry-api-java library are pushed to the geometry-api-cs library.
+This project can be used by visiting http://geometry.fogmodel.io. The user interface demonstrates the capabilities of the GIS computational library called "geometry-api-cs". The geometry-api-cs library is created through semi-automated port of the [geometry-api-java](http://github.com/esri/geometry-api-java.git) library. This means all updates to the geometry-api-java library are pushed to the geometry-api-cs library.
 
 This web interface relies on a [geometry-worker](http://github.com/davidraleigh/geometry-worker) library that listens for RabbitMQ messages.
 
