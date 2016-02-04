@@ -48,8 +48,9 @@ export default React.createClass({
                         <h1>Geometry Micro-Service Demo</h1>
                     </header>
                     <p>
-                        This page uses a C# geometry library that is a continuously integrated port of ESRI's <a target="_blank" href="https://github.com/Esri/geometry-api-java">geometry-api-java</a> library.
-                        Documentation about how the operators work can be found on ESRI's <a target="_blank" href="https://github.com/Esri/geometry-api-java/wiki">geometry wiki page</a>. Find a description of this project at <a target="_blank" href="http://davidraleigh.io/geometry-micro-service/">http://davidraleigh.io</a>
+                        This geometry micro-service uses a C# library ported from ESRI's <a target="_blank" href="https://github.com/Esri/geometry-api-java">geometry-api-java</a> library.
+                        The operators are documented on ESRI's <a target="_blank" href="https://github.com/Esri/geometry-api-java/wiki">geometry wiki page</a>.
+                        For more details on this project look at the <a target="_blank" href="https://github.com/davidraleigh">github repos</a> or read the description at <a target="_blank" href="http://davidraleigh.io/geometry-micro-service/">http://davidraleigh.io</a>.
                     </p>
                     <div>
                         <MethodForm selectedOperator={this.state.selectedOperator} query={this.state.query}/>
