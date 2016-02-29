@@ -1262,5 +1262,121 @@
                 ]
             }
         ]
+    },
+    {
+        "operatorType" : "GeodesicBuffer",
+        "executeMethods" : [
+            {
+                "returnType" : "Geometries",
+                "parameters" : [
+                    {
+                        "parameterPosition" : 0,
+                        "parameterKey" : "left_wkt_geometries",
+                        "parameterType" : "GeometryCursor",
+                        "parameterName" : "inputGeometries",
+                        "parameterValue" : "LINESTRING (3 10, 10 32, 4 40, 5 4)\nMULTILINESTRING ((18 15, 2 2, 1 4),(3 38, 30 30, 35 20, 30 10, 5 0, 0 20))"
+                    },
+                    {
+                        "parameterPosition" : 1,
+                        "parameterKey" : "wkid_sr",
+                        "parameterType" : "SpatialReference",
+                        "parameterName" : "sr",
+                        "parameterValue" : 4326
+                    },
+                    {
+                        "parameterPosition" : 2,
+                        "parameterType" : "Int32",
+                        "parameterName" : "curveType",
+                        "parameterKey" : "input_integers",
+                        "parameterValue" : 0
+                    },
+                    {
+                        "parameterKey": "input_doubles",
+                        "parameterPosition" : 3,
+                        "parameterType" : "Double[]",
+                        "parameterName" : "distancesMeters",
+                        "parameterValue" : 2000.0
+                    },
+                    {
+                        "parameterKey": "input_doubles",
+                        "parameterPosition" : 4,
+                        "parameterType" : "Double[]",
+                        "parameterName" : "maxDeviationMeters",
+                        "parameterValue" : 200.0
+                    },
+                    {
+                        "parameterPosition" : 5,
+                        "parameterType" : "Boolean",
+                        "parameterKey" : "input_booleans",
+                        "parameterName" : "bReserved",
+                        "parameterValue" : false
+                    },
+                    {
+                        "parameterPosition" : 6,
+                        "parameterType" : "Boolean",
+                        "parameterKey" : "input_booleans",
+                        "parameterName" : "bUnion",
+                        "parameterValue" : false
+                    },
+                    {
+                        "parameterPosition" : 7,
+                        "parameterType" : "ProgressTracker",
+                        "parameterName" : "progressTracker"
+                    }
+                ]
+            },
+            {
+                "returnType" : "Geometry",
+                "parameters" : [
+                    {
+                        "parameterPosition" : 0,
+                        "parameterKey" : "left_wkt_geometries",
+                        "parameterType" : "Geometry",
+                        "parameterName" : "inputGeometry",
+                        "parameterValue" : "LINESTRING (0 0, 0 80, 80 80, 80 0, 0 0)"
+                    },
+                    {
+                        "parameterPosition" : 1,
+                        "parameterKey" : "wkid_sr",
+                        "parameterType" : "SpatialReference",
+                        "parameterName" : "sr",
+                        "parameterValue" : 4326
+                    },
+                    {
+                        "parameterPosition" : 2,
+                        "parameterType" : "Int32",
+                        "parameterName" : "curveType",
+                        "parameterKey" : "input_integers",
+                        "parameterValue" : 0
+                    },
+                    {
+                        "parameterKey": "input_doubles",
+                        "parameterPosition" : 3,
+                        "parameterType" : "Double[]",
+                        "parameterName" : "distancesMeters",
+                        "parameterValue" : 300000.0
+                    },
+                    {
+                        "parameterKey": "input_doubles",
+                        "parameterPosition" : 4,
+                        "parameterType" : "Double[]",
+                        "parameterName" : "maxDeviationMeters",
+                        "parameterValue" : 50.0
+                    },
+                    {
+                        "parameterPosition" : 5,
+                        "parameterType" : "Boolean",
+                        "parameterKey" : "input_booleans",
+                        "parameterName" : "bReserved",
+                        "parameterValue" : false
+                    },
+                    {
+                        "parameterPosition" : 6,
+                        "parameterType" : "ProgressTracker",
+                        "parameterName" : "progressTracker"
+                    }
+                ]
+            }
+        ]
     }
 ]
