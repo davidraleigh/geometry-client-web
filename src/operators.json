@@ -1378,5 +1378,86 @@
                 ]
             }
         ]
+    },
+    {
+        "operatorType" : "GeodeticDensifyByLength",
+        "executeMethods" : [
+            {
+                "returnType" : "Geometries",
+                "parameters" : [
+                    {
+                        "parameterPosition" : 0,
+                        "parameterKey" : "left_wkt_geometries",
+                        "parameterType" : "GeometryCursor",
+                        "parameterName" : "inputGeometries",
+                        "parameterValue" : "LINESTRING(0 0,6 0,6 1,4 1,4 2,10 2)\nPOLYGON((0 70, 20 20, 55 20, 55 70, 0 70))"
+                    },
+                    {
+                        "parameterPosition" : 1,
+                        "parameterKey" : "wkid_sr",
+                        "parameterType" : "SpatialReference",
+                        "parameterName" : "sr",
+                        "parameterValue" : 4326
+                    },
+                    {
+                        "parameterPosition" : 2,
+                        "parameterKey" : "input_doubles",
+                        "parameterType" : "Double",
+                        "parameterName" : "maxSegmentLengthMeters",
+                        "parameterValue" : 2000.0
+                    },
+                    {
+                        "parameterPosition" : 3,
+                        "parameterType" : "Int32",
+                        "parameterName" : "curveType",
+                        "parameterKey" : "input_integers",
+                        "parameterValue" : 0
+                    },
+                    {
+                        "parameterPosition" : 4,
+                        "parameterType" : "ProgressTracker",
+                        "parameterName" : "progressTracker"
+                    }
+                ]
+            },
+            {
+                "returnType" : "Geometry",
+                "parameters" : [
+                    {
+                        "parameterPosition" : 0,
+                        "parameterKey" : "left_wkt_geometries",
+                        "parameterType" : "Geometry",
+                        "parameterName" : "inputGeometry",
+                        "parameterValue" : "LINESTRING(-87.6847 41.8369,13.3833 52.5167)"
+                    },
+                    {
+                        "parameterPosition" : 1,
+                        "parameterKey" : "wkid_sr",
+                        "parameterType" : "SpatialReference",
+                        "parameterName" : "sr",
+                        "parameterValue" : 4326
+                    },
+                    {
+                        "parameterPosition" : 2,
+                        "parameterKey" : "input_doubles",
+                        "parameterType" : "Double",
+                        "parameterName" : "maxSegmentLengthMeters",
+                        "parameterValue" : 2000.0
+                    },
+                    {
+                        "parameterPosition" : 3,
+                        "parameterType" : "Int32",
+                        "parameterName" : "curveType",
+                        "parameterKey" : "input_integers",
+                        "parameterValue" : 0
+                    },
+                    {
+                        "parameterPosition" : 4,
+                        "parameterType" : "ProgressTracker",
+                        "parameterName" : "progressTracker"
+                    }
+                ]
+            }
+        ]
     }
 ]
