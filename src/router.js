@@ -15,7 +15,9 @@ import IndexPage from './pages/index'
 export default Router.extend({
 
     routes: {
-        '': 'index'
+        '': 'index',
+        'op/:id': 'operator',
+        'operator/:id': 'operator'
     },
 
 
@@ -33,5 +35,17 @@ export default Router.extend({
 
     index() {
         this.renderPage(<IndexPage style={sideStyle} />, {layout:false});
+    },
+
+    operator(id) {
+        id = id.toLowerCase();
+        for (let i = 0; i < app.operators.length; i++) {
+            if (id === app.operators.at(i).operatorType.toLowerCase()) {
+                app.selectedOperator = app.operators.at(i);
+                this.renderPage(<IndexPage style={sideStyle} />, {layout:false});
+            }
+        }
+        // route to index
+        index();
     }
 });

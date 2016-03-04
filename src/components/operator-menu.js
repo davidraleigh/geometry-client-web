@@ -13,7 +13,7 @@ export default React.createClass({
         const {operators, onSelect, menuToggled} = this.props;
         return (
             <div id="menu" className={menuToggled ? "active" : ""}>
-                <a className="pure-menu-heading" href="#">Operators</a>
+                <a className="pure-menu-heading" href="/">Operators</a>
                 <ul className="pure-menu-list">
                     {
                         operators.map((operator) => <OperatorItem key={operator.operatorType} operator={operator} onSelect={onSelect}></OperatorItem>)

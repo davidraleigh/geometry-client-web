@@ -15,7 +15,6 @@ export default React.createClass({
 
             //event passing with ampersand-app
             //app.trigger('local', {some:'data'});
-
             app.router.history.navigate(pathname);
         }
     },
