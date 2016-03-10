@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import L from '../helpers/leaflet-src'
+import L from '../helpers/leaflet'
 import markerImg from '../styles/images/marker-icon.png'
 
 export default React.createClass({
@@ -19,7 +19,7 @@ export default React.createClass({
     },
 
     render() {
-        return <div className='map' ref='mapClass' style={{height: '320px'}}></div>
+        return <div className='map' ref='mapClass' style={{height: '400px'}}></div>
     },
 
     mergeBounds(left_layer, right_layer) {

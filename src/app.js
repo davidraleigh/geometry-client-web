@@ -13,7 +13,8 @@ window.app = app;
 app.extend({
 	init() {
 		this.operators = new OperatorCollection(operators);
-		this.selectedOperator = this.operators.at(0);
+		// Start at Geodesic Buffer
+		this.selectedOperator = this.operators.at(12);
 		this.router = new Router();
 		this.router.history.start();
 	}

@@ -8,6 +8,7 @@ export default React.createClass({
     mixins: [ampersandMixin],
 
     onClick(e) {
+        debugger;
         e.preventDefault();
         const {onMethodSelect, methodIndex} = this.props;
         onMethodSelect(methodIndex);
