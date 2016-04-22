@@ -14,7 +14,7 @@ app.extend({
 	init() {
 		this.operators = new OperatorCollection(operators);
 		// Start at Geodesic Buffer
-		this.selectedOperator = this.operators.at(12);
+		this.selectedOperator = this.operators.at(14);
 		this.router = new Router();
 		this.router.history.start();
 	}
